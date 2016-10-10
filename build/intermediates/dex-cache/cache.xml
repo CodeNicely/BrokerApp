@@ -2,32 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jar="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
         jumboMode="true"
         revision="24.0.3"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_37388438a577d4a019e2e387c69c45e257fd02ef/classes.dex" />
-    </item>
-    <item
-        jar="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        revision="24.0.3"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_0b48da0c35f4bcf4b48a5437c895a2962bb2b9c3/classes.dex" />
-    </item>
-    <item
-        jar="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="24.0.3"
-        sha1="16777feadaa65036eee1dc3990f4dd69f8de0a32">
-        <dex dex="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_8a2fe780d91eec74e65c097ea337fe2781eb0bd1/classes.dex" />
-    </item>
-    <item
-        jar="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        revision="24.0.3"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_487bad9fc1b70a2448eb198c8e4d1c38e2cf7c13/classes.dex" />
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-24.2.1_ef66e2209695efb7142dba2b8b76460b606d8218/classes.dex" />
     </item>
     <item
         jar="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
@@ -35,6 +14,13 @@
         revision="24.0.3"
         sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
         <dex dex="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-24.2.1_bb9bbddf1f756b29e5c35109d0511e43b118060e/classes.dex" />
+    </item>
+    <item
+        jar="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        revision="24.0.3"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_37388438a577d4a019e2e387c69c45e257fd02ef/classes.dex" />
     </item>
     <item
         jar="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
@@ -65,6 +51,13 @@
         <dex dex="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.1_408466aef8c5b3b8036ec8171953a2edf34cf854/classes.dex" />
     </item>
     <item
+        jar="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        revision="24.0.3"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_0b48da0c35f4bcf4b48a5437c895a2962bb2b9c3/classes.dex" />
+    </item>
+    <item
         jar="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
         jumboMode="true"
         revision="24.0.3"
@@ -79,6 +72,13 @@
         <dex dex="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.2.1_56848c1864f1f0d141d89cc527ec6df14ca7c9be/classes.dex" />
     </item>
     <item
+        jar="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="24.0.3"
+        sha1="d16493267f02bea964ae2f5d3a17a562d5297c40">
+        <dex dex="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_8a2fe780d91eec74e65c097ea337fe2781eb0bd1/classes.dex" />
+    </item>
+    <item
         jar="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="true"
         revision="24.0.3"
@@ -86,11 +86,25 @@
         <dex dex="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_43abd7e7f0ff36339b3c23baa64e6a283a6dce12/classes.dex" />
     </item>
     <item
+        jar="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="24.0.3"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-24.2.1_7165a8e65a2b68a4d300c424bd21fe0b9727a549/classes.dex" />
+    </item>
+    <item
         jar="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
         jumboMode="true"
         revision="24.0.3"
         sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
         <dex dex="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-24.2.1_e98a72fcec20336e014362d7b75452b372cfe278/classes.dex" />
+    </item>
+    <item
+        jar="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        revision="24.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_487bad9fc1b70a2448eb198c8e4d1c38e2cf7c13/classes.dex" />
     </item>
     <item
         jar="/home/ujjwal/AndroidStudioProjects/Broker/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
