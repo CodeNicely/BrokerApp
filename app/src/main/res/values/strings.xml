@@ -6,10 +6,17 @@
     <string name="buy">Buy</string>
     <string name="sell">Sell</string>
     <string name="contact_us">Contact Us</string>
-    <string name="daily_rates">Daily Rates</string>
+    <string name="daily_rates">Rates</string>
 
     <string name="action_settings">Settings</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="address">Agrawal Brothers,Ramayan Complex ,Ramsagarpara,Raipur(C.G.)</string>
+    <string name="phone_numbers">
+        9425503905
+        9406202298
+        9300293177
+    </string>
+
 </resources>

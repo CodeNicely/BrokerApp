@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.daily_rates) {
 
-            fragment = new DailyRates();
+            fragment = new RatesFragment();
             title = getString(R.string.daily_rates);
         }else if (id == R.id.buy){
 
@@ -120,4 +120,5 @@ public class MainActivity extends AppCompatActivity
     public void onFragmentInteraction(Uri uri) {
 
     }
+
 }
