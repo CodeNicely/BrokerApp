@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class RatesFragment extends android.support.v4.app.Fragment {
 
-    private List<Rates> movieList = new ArrayList<>();
+    private List<Rates> rateList = new ArrayList<>();
     private RecyclerView recyclerView;
     private RatesAdapter mAdapter;
 
@@ -30,13 +30,16 @@ public class RatesFragment extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v =inflater.inflate(R.layout.daily_rates,container,false);
         recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
-        mAdapter = new RatesAdapter(movieList);
+        mAdapter = new RatesAdapter(rateList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.addItemDecoration(new DividerItemDecoration(getContext(),LinearLayoutManager.VERTICAL));
+
         recyclerView.setAdapter(mAdapter);
 
         prepareRateData();
+
         return v;
     }
 
@@ -50,43 +53,38 @@ public class RatesFragment extends android.support.v4.app.Fragment {
 
 
         Rates rate = new Rates("Rice", "2000");
-        movieList.add(rate);
-
-
-        rate = new Rates("Broken", "1200");
-        movieList.add(rate);
+        rateList.add(rate);
 
         rate = new Rates("Broken", "1200");
-        movieList.add(rate);
+        rateList.add(rate);
 
         rate = new Rates("Broken", "1200");
-        movieList.add(rate);
+        rateList.add(rate);
 
         rate = new Rates("Broken", "1200");
-        movieList.add(rate);
+        rateList.add(rate);
 
         rate = new Rates("Broken", "1200");
-        movieList.add(rate);
+        rateList.add(rate);
 
         rate = new Rates("Broken", "1200");
-        movieList.add(rate);
+        rateList.add(rate);
 
         rate = new Rates("Broken", "1200");
-        movieList.add(rate);
+        rateList.add(rate);
 
         rate = new Rates("Broken", "1200");
-        movieList.add(rate);
+        rateList.add(rate);
 
         rate = new Rates("Broken", "1200");
-        movieList.add(rate);
+        rateList.add(rate);
 
         rate = new Rates("Broken", "1200");
-        movieList.add(rate);
+        rateList.add(rate);
 
-        rate = new Rates("Broken", "1200");
-        movieList.add(rate);
 
         mAdapter.notifyDataSetChanged();
     }
+
 
 }

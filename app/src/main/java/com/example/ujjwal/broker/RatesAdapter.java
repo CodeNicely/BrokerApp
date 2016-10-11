@@ -29,9 +29,9 @@ public class RatesAdapter extends RecyclerView.Adapter<RatesAdapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        Rates movie = rateList.get(position);
-        holder.name.setText(movie.getProductName());
-        holder.rate.setText(movie.getProductRate());
+        Rates rates = rateList.get(position);
+        holder.name.setText(rates.getProductName());
+        holder.rate.setText(rates.getProductRate());
     }
 
     @Override

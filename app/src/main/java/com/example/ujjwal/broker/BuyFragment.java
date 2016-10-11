@@ -14,6 +14,7 @@ public class BuyFragment extends Fragment {
 
     public BuyFragment(){
 
+        
     }
 
     @Override

@@ -19,7 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,FragmentSell.OnFragmentInteractionListener{
+        implements NavigationView.OnNavigationItemSelectedListener,SellFragment.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.sell) {
             // Handle fragment
-            fragment = new FragmentSell();
+            fragment = new SellFragment();
             title = getString(R.string.sell);
 
 
@@ -104,7 +104,6 @@ public class MainActivity extends AppCompatActivity
 
             android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
             fragmentTransaction.replace(R.id.containerLayout, fragment);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
