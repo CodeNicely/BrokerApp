@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Broker</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="buy">Buy</string>
+    <string name="sell">Sell</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="daily_rates">Daily Rates</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
