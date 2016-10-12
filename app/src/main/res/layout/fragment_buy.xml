@@ -5,11 +5,63 @@
 
 
 
-    <TextView
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp">
+        <Spinner
+            android:id="@+id/spinner_bcategory"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/android_dropdown_arrays"
+            android:padding="5dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Spinner
+            android:id="@+id/spinner_bcategory2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/android_dropdown_arrays"
+            android:padding="5dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rate(in Rs)"/>
+        <EditText
+            android:layout_width="fill_parent"
+            android:id="@+id/buy_rate"
+            android:layout_height="wrap_content"
+            android:maxLength="5"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quantity(in Ton)"
+            />
+        <EditText
+            android:layout_width="fill_parent"
+            android:id="@+id/buy_quantity"
+            android:layout_height="wrap_content"
+            android:maxLength="5"/>
+    </LinearLayout>
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HEllo World to Buy"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"/>
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:id="@+id/buy_submit"
+        android:text="Submit"/>
 </LinearLayout>
