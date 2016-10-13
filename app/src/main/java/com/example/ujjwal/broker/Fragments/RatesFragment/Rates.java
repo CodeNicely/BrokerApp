@@ -1,4 +1,4 @@
-package com.example.ujjwal.broker;
+package com.example.ujjwal.broker.Fragments.RatesFragment;
 
 /**
  * Created by ujjwal on 11/10/16.

@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.example.ujjwal.broker.Login.Model.RetrofitLoginHelper;
 import com.example.ujjwal.broker.Login.Presenter.LoginData;
 import com.example.ujjwal.broker.Login.Presenter.LoginDataImp;
-import com.example.ujjwal.broker.OtpActivity;
+import com.example.ujjwal.broker.OtpVerification.View.OtpActivity;
 import com.example.ujjwal.broker.R;
 
 /**

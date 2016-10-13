@@ -1,4 +1,4 @@
-package com.example.ujjwal.broker;
+package com.example.ujjwal.broker.Fragments.RatesFragment;
 
 import android.content.Context;
 import android.content.res.TypedArray;

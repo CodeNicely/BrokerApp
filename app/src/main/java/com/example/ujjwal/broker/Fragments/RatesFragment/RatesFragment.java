@@ -1,4 +1,4 @@
-package com.example.ujjwal.broker;
+package com.example.ujjwal.broker.Fragments.RatesFragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.ujjwal.broker.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +21,7 @@ public class RatesFragment extends android.support.v4.app.Fragment {
 
     private List<Rates> rateList = new ArrayList<>();
     private RecyclerView recyclerView;
+
     private RatesAdapter mAdapter;
 
 

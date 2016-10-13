@@ -1,4 +1,4 @@
-	package com.example.ujjwal.broker;
+	package com.example.ujjwal.broker.Fragments;
 
 	import android.app.Activity;
 	import android.content.Intent;
@@ -15,6 +15,8 @@
 	import android.widget.ArrayAdapter;
 	import android.widget.Spinner;
 	import android.widget.Toast;
+
+	import com.example.ujjwal.broker.R;
 
 	import butterknife.BindView;
 	import butterknife.ButterKnife;

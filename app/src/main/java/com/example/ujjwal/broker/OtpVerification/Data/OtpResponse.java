@@ -29,4 +29,5 @@ public class OtpResponse {
 	public String getAccess_token() {
 		return access_token;
 	}
+
 }

@@ -1,4 +1,4 @@
-package com.example.ujjwal.broker;
+package com.example.ujjwal.broker.Fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,12 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.ujjwal.broker.R;
+
 /**
  * Created by ujjwal on 11/10/16.
  */
-public class ContactUs extends android.support.v4.app.Fragment {
+public class ContactUsFragment extends android.support.v4.app.Fragment {
 
-    public ContactUs(){
+    public ContactUsFragment(){
 
     }
 

@@ -1,4 +1,4 @@
-package com.example.ujjwal.broker;
+package com.example.ujjwal.broker.WelcomeScreen;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.ujjwal.broker.Login.View.LoginMainImp;
+import com.example.ujjwal.broker.R;
 
 /**
  * Created by ujjwal on 13/10/16.

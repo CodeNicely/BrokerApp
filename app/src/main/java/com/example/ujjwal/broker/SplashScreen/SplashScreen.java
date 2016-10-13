@@ -5,9 +5,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.ujjwal.broker.MainActivity;
 import com.example.ujjwal.broker.R;
-import com.example.ujjwal.broker.WelcomeSliderScreen;
+import com.example.ujjwal.broker.WelcomeScreen.WelcomeSliderScreen;
 
 /**
  * Created by ujjwal on 13/10/16.

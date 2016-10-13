@@ -1,14 +1,9 @@
 package com.example.ujjwal.broker;
 
-import android.app.FragmentManager;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
 
-import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,6 +12,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.example.ujjwal.broker.Fragments.BuyFragment;
+import com.example.ujjwal.broker.Fragments.ContactUsFragment;
+
+import com.example.ujjwal.broker.Fragments.RatesFragment.RatesFragment;
+import com.example.ujjwal.broker.Fragments.SellFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
@@ -87,7 +88,7 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if (id == R.id.contact_us) {
-            fragment = new ContactUs();
+            fragment = new ContactUsFragment();
 
 
         } else if (id == R.id.daily_rates) {
