@@ -22,10 +22,10 @@ public class RetrofitLoginHelper implements LoginBaseClassHelper {
 	@Override
 	public void loginData(String mobile, String firm, String name, final LoginCallback loginCallback) {
 
-		HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+		/*HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
 		interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 		OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
-
+*/
 		Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.0.111:8000/").addConverterFactory(GsonConverterFactory.create()).build();
 		RequestLogin requestLogin = retrofit.create(RequestLogin.class);
 		Call<LoginDataResponse> call = requestLogin.getJSON(mobile, firm, name);
