@@ -47,7 +47,7 @@ public class LoginMainImp extends AppCompatActivity implements LoginMain{
 		textInputLayoutName= (TextInputLayout) findViewById(R.id.input_layout_name);
 		textInputLayoutFirm= (TextInputLayout) findViewById(R.id.input_layout_firm);
 		textInputLayoutMobile= (TextInputLayout) findViewById(R.id.input_layout_mobile);
-
+		progressBar= (ProgressBar) findViewById(R.id.progressBar);
 	}
 	public void proceed(View v)
 	{
@@ -62,12 +62,12 @@ public class LoginMainImp extends AppCompatActivity implements LoginMain{
 
 	@Override
 	public void showProgressBar(boolean show) {
-	/*if (show){
+	if (show){
 	progressBar.setVisibility(View.VISIBLE);
 	}else {
 	progressBar.setVisibility(View.INVISIBLE);
 	}
-	*/}
+	}
 
 	@Override
 	public void showLoginStatus(boolean login) {
