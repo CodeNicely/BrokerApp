@@ -83,21 +83,21 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.sell) {
             // Handle fragment
             fragment = new SellFragment();
-            title = getString(R.string.sell);
+
 
 
         } else if (id == R.id.contact_us) {
             fragment = new ContactUs();
-            title = getString(R.string.contact_us);
+
 
         } else if (id == R.id.daily_rates) {
 
             fragment = new RatesFragment();
-            title = getString(R.string.daily_rates);
+
         }else if (id == R.id.buy){
 
             fragment=new BuyFragment();
-            title=getString(R.string.buy);
+
         }
 
 
@@ -113,6 +113,7 @@ public class MainActivity extends AppCompatActivity
 
         getSupportActionBar().setTitle(title);
         return true;
+
     }
 
 
