@@ -78,8 +78,8 @@ public class OtpActivity extends AppCompatActivity implements OtpActivityInterfa
 	public void otpStatus(boolean status) {
 		if(status)
 		{
-			Intent i =new Intent(this, MainActivity.class);
-			startActivity(i);
+		/*	Intent i =new Intent(this, MainActivity.class);
+			startActivity(i);*/
 		}
 		else
 		{

@@ -22,7 +22,7 @@ public class RatesAdapter extends RecyclerView.Adapter<RatesAdapter.MyViewHolder
 
 
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.rate_list_row, parent, false);
+                                .inflate(R.layout.rate_list_row, parent, false);
 
         return new MyViewHolder(itemView);
 
@@ -40,6 +40,7 @@ public class RatesAdapter extends RecyclerView.Adapter<RatesAdapter.MyViewHolder
     public int getItemCount() {
         return rateList.size();
     }
+
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView name,rate;

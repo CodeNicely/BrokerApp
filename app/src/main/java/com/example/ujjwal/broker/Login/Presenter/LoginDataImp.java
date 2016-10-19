@@ -24,6 +24,7 @@ public class LoginDataImp implements LoginData{
 
 	@Override
 	public void getLoginData(String mobile, final String firm, String name) {
+
 	login.showProgressBar(true);
 
 		loginBaseClassHelper.loginData(mobile,firm,name,new LoginCallback(){
