@@ -3,6 +3,7 @@ package com.example.ujjwal.broker.Login.Model;
 import com.example.ujjwal.broker.Login.Api.RequestLogin;
 import com.example.ujjwal.broker.Login.Data.LoginDataResponse;
 import com.example.ujjwal.broker.Login.LoginCallback;
+import com.example.ujjwal.broker.helper.Urls;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -17,36 +18,31 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by ujjwal on 13/10/16.
  */
 public class RetrofitLoginHelper implements LoginBaseClassHelper {
-
+	private static String TAG ="RetrofitLoginHelper";
 
 	@Override
-	public void loginData(String mobile, String firm, String name, final LoginCallback loginCallback) {
+	public void loginData(String mobile, String firm, String name, String city, String category, final LoginCallback loginCallback) {
 		HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
 		interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 		OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
-		Retrofit retrofit = new Retrofit.Builder().baseUrl("http://192.168.0.111:8000/").addConverterFactory(GsonConverterFactory.create()).build();
+		Retrofit retrofit= new Retrofit.Builder().baseUrl(Urls.BASE_URL).client(client)
+								   .addConverterFactory(GsonConverterFactory.create()).build();
 		RequestLogin requestLogin = retrofit.create(RequestLogin.class);
-		Call<LoginDataResponse> call = requestLogin.getJSON(mobile, firm, name);
+		Call<LoginDataResponse> call= requestLogin.getJSON(mobile,firm,name,city,category);
 		call.enqueue(new Callback<LoginDataResponse>() {
-
 			@Override
 			public void onResponse(Call<LoginDataResponse> call, Response<LoginDataResponse> response) {
-				if(response.body().isSuccess())
-				{
+				//Log.i(TAG,"Got Response "+response.body().getMessage().toString());
+
 					loginCallback.onLoginSuccess(response.body());
-				}
-				else
-				{
-					loginCallback.onLoginFailure("error try again");
-				}
 
 			}
-
-			@Override
+				@Override
 			public void onFailure(Call<LoginDataResponse> call, Throwable t) {
-				t.printStackTrace();
+				loginCallback.onLoginFailure(t.getMessage());
 			}
 		});
+
 	}
 }

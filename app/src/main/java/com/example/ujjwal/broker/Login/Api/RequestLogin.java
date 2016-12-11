@@ -13,7 +13,8 @@ import retrofit2.http.POST;
 
 public interface RequestLogin {
 	@FormUrlEncoded
-	@POST("otp/")
-	Call<LoginDataResponse> getJSON(@Field("mobile") String mobile,@Field("firm")String firm ,@Field("name") String name);
+	@POST("Urls.SUB_URL_LOGIN")
+	Call<LoginDataResponse> getJSON(@Field("mobile") String mobile,@Field("firm")String firm ,@Field("name") String name,
+	@Field("city")String city,@Field("category")String category);
 
 }

@@ -7,6 +7,8 @@ public class Urls {
 
 	public static final String BASE_URL="http://www.townmart.in/";
 
-
 	public static final String SUB_URL_SPLASH_SCREEN ="splash_screen/";
+	public static final String SUB_URL_LOGIN = "login/";
+	public static final String SUB_URL_VERIFY = "verify/";
+
 }

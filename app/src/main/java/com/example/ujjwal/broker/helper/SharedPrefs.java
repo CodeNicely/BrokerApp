@@ -12,7 +12,7 @@ public class SharedPrefs {
 	//shared preference file name
 	private static final String KEY_IS_LOGGED_IN="isLoggedIn";
 	private static final String PREFERENCE_NAME="Welcome";
-
+	private static final String KEY_MOBILE = "mobile";
 
 	//Shared Preferences
 	SharedPreferences pref ;
@@ -39,5 +39,17 @@ public class SharedPrefs {
 
 
 
+	public String getMobile() {
+
+		return pref.getString(KEY_MOBILE, "NA");
+
+	}
+
+	public void setMobile(String userName) {
+
+		editor.putString(KEY_MOBILE, userName);
+		editor.commit();
+
+	}
 
 }

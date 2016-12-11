@@ -5,5 +5,5 @@ package com.example.ujjwal.broker.Login.Presenter;
  */
 public interface LoginData {
 
-	void getLoginData(String mobile,String firm ,String name);
+	void getLoginData(String mobile,String firm ,String name,String city,String category);
 }

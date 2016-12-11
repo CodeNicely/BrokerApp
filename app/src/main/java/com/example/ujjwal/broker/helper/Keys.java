@@ -5,6 +5,6 @@ package com.example.ujjwal.broker.helper;
  */
 public class Keys {
 
-	public static String KEY_CATEGORY_ID="category_id";
 
+	public static final java.lang.String KEY_MOBILE ="mobile" ;
 }
