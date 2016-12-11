@@ -1,10 +1,13 @@
 package com.example.ujjwal.broker.Login.View;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,21 +19,21 @@ import com.example.ujjwal.broker.Login.Presenter.LoginData;
 import com.example.ujjwal.broker.Login.Presenter.LoginDataImp;
 import com.example.ujjwal.broker.OtpVerification.View.OtpActivity;
 import com.example.ujjwal.broker.R;
+import com.example.ujjwal.broker.helper.SharedPrefs;
 
 /**
  * Created by ujjwal on 13/10/16.
  */
 public class LoginMainImp extends AppCompatActivity implements LoginMain{
 	private EditText editTextMobile;
-	private TextInputLayout textInputLayoutMobile;
-	private TextInputLayout textInputLayoutName;
 	private EditText editTextName;
 	private EditText editTextFirm;
-	private TextInputLayout textInputLayoutFirm;
-
 	private ProgressBar progressBar;
-	private Button button;
 	private LoginData loginData;
+	private String name,mobile,firm;
+	private SharedPrefs sharedPrefs;
+
+
 	private RetrofitLoginHelper retrofitLoginHelper;
 
 	@Override
@@ -44,20 +47,47 @@ public class LoginMainImp extends AppCompatActivity implements LoginMain{
 		editTextName= (EditText) findViewById(R.id.input_name);
 		editTextFirm= (EditText) findViewById(R.id.input_firm);
 		editTextMobile= (EditText) findViewById(R.id.input_mobile);
-		textInputLayoutName= (TextInputLayout) findViewById(R.id.input_layout_name);
-		textInputLayoutFirm= (TextInputLayout) findViewById(R.id.input_layout_firm);
-		textInputLayoutMobile= (TextInputLayout) findViewById(R.id.input_layout_mobile);
 		progressBar= (ProgressBar) findViewById(R.id.progressBar);
+
+		editTextMobile.addTextChangedListener(new TextWatcher() {
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+			}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+			if(s.length()==10) {
+
+				hideKeyboard();
+			}
+			}
+			@Override
+			public void afterTextChanged(Editable s) {
+
+			}
+		});
 	}
-	public void proceed(View v)
-	{
-		String name=editTextName.getText().toString();
-		String mobile =editTextMobile.getText().toString();
-		String firm=editTextFirm.getText().toString();
 
-		loginData= new LoginDataImp(this,new RetrofitLoginHelper());
-		loginData.getLoginData(mobile,firm,name);
+	private void hideKeyboard() {
 
+	}
+
+	public void proceed(View v) {
+		String name = editTextName.getText().toString();
+		String mobile = editTextMobile.getText().toString();
+		String firm = editTextFirm.getText().toString();
+		if(name.isEmpty()|| mobile.isEmpty()|| firm.isEmpty()){
+			showProgressBar(false);
+			showError("Fields Cannot be empty");
+
+		}
+		else{
+
+			loginData = new LoginDataImp(this, new RetrofitLoginHelper());
+			loginData.getLoginData(mobile, firm, name);
+			hideKeyboard();
+		}
 	}
 
 	@Override
@@ -74,6 +104,8 @@ public class LoginMainImp extends AppCompatActivity implements LoginMain{
 
 		if (login)
 		{
+
+
 			Intent i = new Intent(this, OtpActivity.class);
 			startActivity(i);
 		}

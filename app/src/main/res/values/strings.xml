@@ -16,6 +16,8 @@
     <string name="phone_numbers">
         9425503905
     </string>
+    <string name="tag_line">#Sell #Buy #Earn</string>
+    <string name="codenicely">Powered by</string>
     <string-array name="android_dropdown_arrays">
         <item>Choose a Item</item>
         <item>Rice</item>

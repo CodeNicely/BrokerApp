@@ -4,7 +4,8 @@ package com.example.ujjwal.broker.OtpVerification.Data;
  * Created by ujjwal on 13/10/16.
  */
 public class OtpResponse {
-	private String message,message_debug,access_token;
+	private String message,access_token;
+	private String message_debug;
 	private boolean success;
 
 	public OtpResponse(String message, String message_debug, String access_token, boolean success) {

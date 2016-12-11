@@ -27,6 +27,7 @@ public class LoginDataImp implements LoginData{
 
 	login.showProgressBar(true);
 
+
 		loginBaseClassHelper.loginData(mobile,firm,name,new LoginCallback(){
 
 			@Override
@@ -42,7 +43,8 @@ public class LoginDataImp implements LoginData{
 				login.showLoginStatus(false);
 
 			}
-		});
+		} )
+		;
 
 
 	}

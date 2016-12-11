@@ -12,10 +12,11 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_gravity="center"
-        android:layout_marginTop="70dp"
-        android:layout_height="350dp"
+        android:layout_marginTop="0dp"
+        android:layout_height="440dp"
         app:cardCornerRadius="4dp"
         app:cardElevation="5dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,6 +45,40 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_firm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/input_firm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="20dp"
+                    android:hint="Company Firm"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="20dp" />
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <EditText
+                    android:id="@+id/input_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="20dp"
+                    android:hint="City"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="10dp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
                 android:id="@+id/input_layout_mobile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -62,21 +97,24 @@
 
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/input_layout_firm"
+
+                android:id="@+id/input_layout_category"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                >
 
                 <EditText
-                    android:id="@+id/input_firm"
+                    android:id="@+id/input_category"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_marginStart="20dp"
-                    android:hint="Company Firm"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="20dp" />
+                    android:hint="Category"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="10dp" />
             </android.support.design.widget.TextInputLayout>
+
             <Button
                 android:id="@+id/logIn"
                 android:layout_width="match_parent"
@@ -87,7 +125,7 @@
                 android:layout_marginBottom="10dp"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
-                android:background="#8BC34A"
+                android:background="#1FFFFF"
                 android:text="Log In"
                 android:textAllCaps="false"
                 android:textSize="18sp"

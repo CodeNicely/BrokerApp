@@ -10,4 +10,5 @@ public interface LoginCallback {
 
 	void onLoginSuccess(LoginDataResponse loginResponse);
 	void onLoginFailure(String error);
+
 }

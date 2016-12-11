@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "237291173548",
+    "firebase_url": "https://fir-pushnotification-f122e.firebaseio.com",
+    "project_id": "fir-pushnotification-f122e",
+    "storage_bucket": "fir-pushnotification-f122e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:237291173548:android:9e3b0b7a40234534",
+        "android_client_info": {
+          "package_name": "com.example.ujjwal.broker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "237291173548-frgghqiv2oo7q2666tor5ir1jn0cr656.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEGW44JPzhHznvueGy5DGy4-Gg_po3LSg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
