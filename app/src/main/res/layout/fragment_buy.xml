@@ -10,9 +10,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/container_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Base.ThemeOverlay.AppCompat.Dark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary" />
+        </LinearLayout>
         <Spinner
-            android:id="@+id/spinner_bcategory"
+            android:id="@+id/spinner_product"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:entries="@array/android_dropdown_arrays"
@@ -23,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Spinner
-            android:id="@+id/spinner_bcategory2"
+            android:id="@+id/spinner_subproduct"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:entries="@array/android_dropdown_arrays"
@@ -64,4 +80,10 @@
         android:gravity="center"
         android:id="@+id/buy_submit"
         android:text="Submit"/>
+    <ProgressBar
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:id="@+id/progress_bar"/>
+
 </LinearLayout>

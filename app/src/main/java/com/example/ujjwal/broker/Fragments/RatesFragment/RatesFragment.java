@@ -31,7 +31,7 @@ public class RatesFragment extends android.support.v4.app.Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v =inflater.inflate(R.layout.daily_rates,container,false);
+        View v =inflater.inflate(R.layout.deals_activity,container,false);
         recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
         mAdapter = new RatesAdapter(rateList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());

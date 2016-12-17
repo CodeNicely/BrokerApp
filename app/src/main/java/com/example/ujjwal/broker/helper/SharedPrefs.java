@@ -13,6 +13,7 @@ public class SharedPrefs {
 	private static final String KEY_IS_LOGGED_IN="isLoggedIn";
 	private static final String PREFERENCE_NAME="Welcome";
 	private static final String KEY_MOBILE = "mobile";
+	private static final String KEY_ACCESS_TOKEN ="access_token" ;
 
 	//Shared Preferences
 	SharedPreferences pref ;
@@ -39,17 +40,19 @@ public class SharedPrefs {
 
 
 
-	public String getMobile() {
 
-		return pref.getString(KEY_MOBILE, "NA");
+	public void setMobile(String mobile) {
 
-	}
-
-	public void setMobile(String userName) {
-
-		editor.putString(KEY_MOBILE, userName);
+		editor.putString(KEY_MOBILE, mobile);
 		editor.commit();
 
 	}
+	public String getAccessToken(){
+		return  pref.getString(KEY_ACCESS_TOKEN,null);
+	}
 
+	public  void setAccessToken(String accessToken){
+		editor.putString(KEY_ACCESS_TOKEN,accessToken);
+		editor.commit();
+	}
 }

@@ -6,7 +6,7 @@ package com.example.ujjwal.broker.Login.Data;
 public class LoginDataResponse   {
 	private boolean success;
 	private String message;
-	public LoginDataResponse(boolean success, String message, String message_display)
+	public LoginDataResponse(boolean success, String message)
 	{
 		this.message=message;
 		this.success=success;

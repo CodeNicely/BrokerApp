@@ -48,7 +48,7 @@ public class RatesAdapter extends RecyclerView.Adapter<RatesAdapter.MyViewHolder
         public MyViewHolder(View view) {
             super(view);
             rate = (TextView) view.findViewById(R.id.rate);
-            name= (TextView) view.findViewById(R.id.name);
+
         }
     }
 

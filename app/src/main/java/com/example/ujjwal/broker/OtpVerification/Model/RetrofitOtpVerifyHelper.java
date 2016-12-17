@@ -5,6 +5,7 @@ import android.util.Log;
 import com.example.ujjwal.broker.OtpVerification.Api.RequestOtpVerify;
 import com.example.ujjwal.broker.OtpVerification.Data.OtpResponse;
 import com.example.ujjwal.broker.OtpVerification.OtpVerificationCallback;
+import com.example.ujjwal.broker.helper.Urls;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -25,19 +26,17 @@ public class RetrofitOtpVerifyHelper implements OtpVerifyHelperInterface{
 
 	@Override
 	public void getOtpResponse(String otp_number, String mobile_no, final OtpVerificationCallback otpVerificationCallback) {
-/*
-
 		HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
 		interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 		OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
-*/
+
+		Retrofit retrofit = new Retrofit.Builder().baseUrl(Urls.BASE_URL).client(client).
+																								addConverterFactory(GsonConverterFactory.create()).build();
+		final RequestOtpVerify requestOtpVerify = retrofit.create(RequestOtpVerify.class);
 
 
 
 
-
-		Retrofit retrofit =new Retrofit.Builder().baseUrl("http://www.townmart.in").addConverterFactory(GsonConverterFactory.create()).build();
-		final RequestOtpVerify requestOtpVerify=retrofit.create(RequestOtpVerify.class);
 		Call<OtpResponse> call=requestOtpVerify.getJson(otp_number,mobile_no);
 		call.enqueue(new Callback<OtpResponse>() {
 			@Override
@@ -49,7 +48,8 @@ public class RetrofitOtpVerifyHelper implements OtpVerifyHelperInterface{
 
 			@Override
 			public void onFailure(Call<OtpResponse> call, Throwable t) {
-				otpVerificationCallback.onFailure(t.getMessage());
+					t.printStackTrace();
+					otpVerificationCallback.onFailure(t.getMessage());
 			}
 		});
 	}

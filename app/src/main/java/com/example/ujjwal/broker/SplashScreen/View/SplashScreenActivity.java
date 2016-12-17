@@ -1,5 +1,6 @@
 package com.example.ujjwal.broker.SplashScreen.View;
 
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -8,11 +9,13 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.ujjwal.broker.Deals.View.DealsActivity;
 import com.example.ujjwal.broker.Login.View.LoginMainImp;
-import com.example.ujjwal.broker.MainActivity;
 import com.example.ujjwal.broker.R;
 import com.example.ujjwal.broker.SplashScreen.Model.Data.SplashScreenData;
 import com.example.ujjwal.broker.SplashScreen.Model.ReterofitSplashScreenProvider;
@@ -41,7 +44,7 @@ public class SplashScreenActivity extends Activity implements SplashScreenView {
 	ImageView codenicely_logo;
 
 
-	private ImageLoader imageLoader;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,8 @@ public class SplashScreenActivity extends Activity implements SplashScreenView {
 
 		splashScreenPresenter =new SplashScreenPresenterImpl(this,new ReterofitSplashScreenProvider());
 		splashScreenPresenter.sendFcm(MyApplication.getFcm_token());
+		Log.i("sajnsa,","FCM TOken"+MyApplication.getFcm_token());
+
 		sharedPrefs = new SharedPrefs(this);
 
 	}
@@ -90,7 +95,7 @@ public class SplashScreenActivity extends Activity implements SplashScreenView {
 					alertDialog.cancel();
 
 					if (sharedPrefs.iSLoggedIn()) {
-						startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
+						startActivity(new Intent(SplashScreenActivity.this, DealsActivity.class));
 						finish();
 					}else{
 						startActivity(new Intent(SplashScreenActivity.this, LoginMainImp.class));
@@ -103,13 +108,13 @@ public class SplashScreenActivity extends Activity implements SplashScreenView {
 
 			alertDialog.show();
 		}else if(getPackageManager().getPackageInfo(getPackageName(),0).versionCode < splashScreenData.getVersion()
-				&& !splashScreenData.isCompusory_Update()){
+				&& splashScreenData.isCompusory_Update()){
 
 			final AlertDialog alertDialog =new AlertDialog.Builder(this).create();
 
 			alertDialog.cancel();
 			alertDialog.setTitle("App Update Availabale");
-			alertDialog.setMessage("This is a compulsaryupdate .Please update the app to enjoy our Services");
+			alertDialog.setMessage("This is a compulsary update .Please update the app to enjoy our Services");
 			alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"Update", new DialogInterface.OnClickListener() {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
@@ -135,7 +140,7 @@ public class SplashScreenActivity extends Activity implements SplashScreenView {
 				public void run() {
 
 					if (sharedPrefs.iSLoggedIn()) {
-						startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
+						startActivity(new Intent(SplashScreenActivity.this, DealsActivity.class));
 						finish();
 					}else{
 						startActivity(new Intent(SplashScreenActivity.this, LoginMainImp.class));
@@ -157,7 +162,7 @@ public class SplashScreenActivity extends Activity implements SplashScreenView {
 			@Override
 			public void run() {
 				if(sharedPrefs.iSLoggedIn()){
-					startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
+					startActivity(new Intent(SplashScreenActivity.this, DealsActivity.class));
 					finish();
 				}
 				else
@@ -168,5 +173,11 @@ public class SplashScreenActivity extends Activity implements SplashScreenView {
 
 			}
 		},3000);
+	}
+
+	@Override
+	public void showMessage(String message) {
+		Toast.makeText(SplashScreenActivity.this, message, Toast.LENGTH_SHORT).show();
+
 	}
 }

@@ -29,6 +29,7 @@ public class SplashScreenPresenterImpl implements SplashScreenPresenter {
 			public void onSuccess(SplashScreenData splashScreenData) {
 			if (splashScreenData.isSuccess()){
 				try {
+					splashScreenView.showMessage(splashScreenData.getMessage());
 					splashScreenView.onVersionRecived(splashScreenData);
 
 				}catch (PackageManager .NameNotFoundException e){

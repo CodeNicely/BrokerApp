@@ -17,6 +17,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.ujjwal.broker.Buy.View.BuyFragment;
+import com.example.ujjwal.broker.Deals.View.DealsActivity;
 import com.example.ujjwal.broker.Login.Model.RetrofitLoginHelper;
 import com.example.ujjwal.broker.Login.Presenter.LoginData;
 import com.example.ujjwal.broker.Login.Presenter.LoginDataImp;
@@ -28,6 +30,7 @@ import com.example.ujjwal.broker.helper.SharedPrefs;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Optional;
 
 /**
  * Created by ujjwal on 13/10/16.
@@ -44,21 +47,11 @@ public class LoginMainImp extends AppCompatActivity implements LoginMain{
 	private String name,mobile,firm,city,category;
 	private SharedPrefs sharedPrefs;
 
-	@BindView(R.id.toolbar)
-	Toolbar toolbar;
 
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-		ButterKnife.bind(this);
-		toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				startActivity(new Intent(LoginMainImp.this,WelcomeActivity.class));
-				finish();
-			}
-		});
 		sharedPrefs =new SharedPrefs(this);
 		initialise();
 	}
@@ -90,6 +83,7 @@ public class LoginMainImp extends AppCompatActivity implements LoginMain{
 
 			}
 		});
+
 	}
 
 	private void hideKeyboard() {
@@ -103,11 +97,11 @@ public class LoginMainImp extends AppCompatActivity implements LoginMain{
 	}
 
 	public void proceed(View v) {
-		String name = editTextName.getText().toString();
-		String mobile = editTextMobile.getText().toString();
-		String firm = editTextFirm.getText().toString();
-		String city = editTextCity.getText().toString();
-		String category =editTextCategory.getText().toString();
+		name = editTextName.getText().toString();
+		mobile = editTextMobile.getText().toString();
+		firm = editTextFirm.getText().toString();
+		city = editTextCity.getText().toString();
+		category =editTextCategory.getText().toString();
 
 		if(name.isEmpty()|| mobile.isEmpty()|| firm.isEmpty() || city.isEmpty()|| category.isEmpty()){
 			showProgressBar(false);
@@ -118,7 +112,9 @@ public class LoginMainImp extends AppCompatActivity implements LoginMain{
 
 			loginData = new LoginDataImp(this, new RetrofitLoginHelper());
 			loginData.getLoginData(mobile, firm, name,city,category);
-			hideKeyboard();
+
+				hideKeyboard();
+
 		}
 	}
 

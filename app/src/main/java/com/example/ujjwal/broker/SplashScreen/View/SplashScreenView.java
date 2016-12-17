@@ -13,4 +13,5 @@ public interface SplashScreenView {
 
 	void onFailed();
 
+	void showMessage(String message);
 }

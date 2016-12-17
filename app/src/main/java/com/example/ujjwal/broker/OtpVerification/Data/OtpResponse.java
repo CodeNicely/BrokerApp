@@ -5,12 +5,10 @@ package com.example.ujjwal.broker.OtpVerification.Data;
  */
 public class OtpResponse {
 	private String message,access_token;
-	private String message_debug;
 	private boolean success;
 
-	public OtpResponse(String message, String message_debug, String access_token, boolean success) {
+	public OtpResponse(String message,String access_token, boolean success) {
 		this.message = message;
-		this.message_debug = message_debug;
 		this.access_token = access_token;
 		this.success = success;
 	}
@@ -23,9 +21,6 @@ public class OtpResponse {
 		return message;
 	}
 
-	public String getMessage_debug() {
-		return message_debug;
-	}
 
 	public String getAccess_token() {
 		return access_token;

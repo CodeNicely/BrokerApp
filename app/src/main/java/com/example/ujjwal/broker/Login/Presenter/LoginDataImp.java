@@ -20,6 +20,7 @@ public class LoginDataImp implements LoginData{
 		this.loginBaseClassHelper=retrofitLoginHelper;
 
 	}
+
 	@Override
 	public void getLoginData(String mobile, String firm, String name, String city, String category) {
 		login.showProgressBar(true);
