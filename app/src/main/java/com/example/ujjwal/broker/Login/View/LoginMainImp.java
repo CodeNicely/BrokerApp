@@ -2,35 +2,24 @@ package com.example.ujjwal.broker.Login.View;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.ujjwal.broker.Buy.View.BuyFragment;
-import com.example.ujjwal.broker.Deals.View.DealsActivity;
 import com.example.ujjwal.broker.Login.Model.RetrofitLoginHelper;
 import com.example.ujjwal.broker.Login.Presenter.LoginData;
 import com.example.ujjwal.broker.Login.Presenter.LoginDataImp;
 import com.example.ujjwal.broker.OtpVerification.View.OtpActivity;
 import com.example.ujjwal.broker.R;
-import com.example.ujjwal.broker.WelcomeScreen.View.WelcomeActivity;
 import com.example.ujjwal.broker.helper.Keys;
 import com.example.ujjwal.broker.helper.SharedPrefs;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Optional;
 
 /**
  * Created by ujjwal on 13/10/16.
@@ -143,8 +132,7 @@ public class LoginMainImp extends AppCompatActivity implements LoginMain{
 	}
 
 	@Override
-	public void showError(String message) {
-		Toast.makeText(this,message,Toast.LENGTH_LONG).show();
+	public void showError(String message) {Toast.makeText(this,message,Toast.LENGTH_LONG).show();
 	}
 
 }

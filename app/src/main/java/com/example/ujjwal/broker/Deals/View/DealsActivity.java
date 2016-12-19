@@ -1,9 +1,11 @@
 package com.example.ujjwal.broker.Deals.View;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -19,8 +21,7 @@ import android.view.MenuItem;
 import com.example.ujjwal.broker.Buy.View.BuyFragment;
 import com.example.ujjwal.broker.Fragments.ContactUsFragment;
 import com.example.ujjwal.broker.R;
-import com.example.ujjwal.broker.Sell.View.SellFragment;
-import com.example.ujjwal.broker.helper.SharedPrefs;
+
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,11 +29,12 @@ import butterknife.ButterKnife;
 /**
  * Created by ujjwal on 13/12/16.
  */
-public class DealsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+public class DealsActivity extends AppCompatActivity implements
+		NavigationView.OnNavigationItemSelectedListener,ProductsFragment.OnFragmentInteractionListener {
 
-	SharedPrefs sharedPrefs;
-
+	@BindView(R.id.coordinator_layout)
+	CoordinatorLayout coordinatorLayout;
 	@BindView(R.id.toolbar)
 	Toolbar toolbar;
 
@@ -57,8 +59,7 @@ public class DealsActivity extends AppCompatActivity implements NavigationView.O
 		navigationView.setNavigationItemSelectedListener(this);
 
 
-		setFragment(new DealsFragment(), "Home");
-		sharedPrefs= new SharedPrefs(this);
+		setFragment(new CategoryFragment(), "Home");
 	}
 
 	private void initialise() {
@@ -70,7 +71,7 @@ public class DealsActivity extends AppCompatActivity implements NavigationView.O
 
 		FragmentManager fragmentManager = getSupportFragmentManager();
 		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-		fragmentTransaction.replace(R.id.containerLayout, fragment);
+		fragmentTransaction.replace(R.id.frame_layout_deals, fragment);
 		fragmentTransaction.commit();
 
 		getSupportActionBar().setTitle(title);
@@ -116,10 +117,6 @@ public class DealsActivity extends AppCompatActivity implements NavigationView.O
 			addFragment(new BuyFragment(),"Buy");
 			getSupportActionBar().hide();
 
-		}else if (id == R.id.sell){
-			addFragment(new SellFragment(),"Sell");
-			getSupportActionBar().hide();
-
 		}else {
 			addFragment(new ContactUsFragment(),"Contact Us");
 		}
@@ -142,7 +139,8 @@ public class DealsActivity extends AppCompatActivity implements NavigationView.O
 	}
 
 
+	@Override
+	public void onFragmentInteraction(Uri uri) {
 
-
-
+	}
 }

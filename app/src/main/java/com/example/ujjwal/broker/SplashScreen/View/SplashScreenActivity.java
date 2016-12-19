@@ -23,7 +23,6 @@ import com.example.ujjwal.broker.SplashScreen.Presenter.SplashScreenPresenter;
 import com.example.ujjwal.broker.SplashScreen.Presenter.SplashScreenPresenterImpl;
 import com.example.ujjwal.broker.helper.MyApplication;
 import com.example.ujjwal.broker.helper.SharedPrefs;
-import com.example.ujjwal.broker.helper.image_loader.ImageLoader;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

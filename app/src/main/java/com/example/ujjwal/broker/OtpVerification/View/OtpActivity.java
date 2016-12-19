@@ -1,14 +1,11 @@
 package com.example.ujjwal.broker.OtpVerification.View;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -121,9 +118,9 @@ public class OtpActivity extends AppCompatActivity implements OtpActivityInterfa
 		{
 			Intent i = new Intent(this, DealsActivity.class);
 			i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-			startActivity(i);
 			sharedPrefs.setAccessToken(otpResponse.getAccess_token());
 			sharedPrefs.setLogin(true);
+			startActivity(i);
 			finish();
 		} else {
 			Toast.makeText(this, "Wrong Otp", Toast.LENGTH_LONG).show();

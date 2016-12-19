@@ -9,7 +9,6 @@ import com.example.ujjwal.broker.OtpVerification.Model.RetrofitOtpVerifyHelper;
 import com.example.ujjwal.broker.OtpVerification.OtpVerificationCallback;
 import com.example.ujjwal.broker.OtpVerification.View.OtpActivity;
 import com.example.ujjwal.broker.OtpVerification.View.OtpActivityInterface;
-import com.example.ujjwal.broker.Sell.Model.RetrofitSellHelper;
 
 /**
  * Created by ujjwal on 13/10/16.

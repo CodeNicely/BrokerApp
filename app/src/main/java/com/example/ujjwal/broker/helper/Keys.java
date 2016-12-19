@@ -7,4 +7,7 @@ public class Keys {
 
 
 	public static final java.lang.String KEY_MOBILE ="mobile" ;
+
+	public static java.lang.String KEY_CATEGORY_ID;
+	public static java.lang.String KEY_CATEGORY_NAME;
 }

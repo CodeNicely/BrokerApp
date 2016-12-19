@@ -53,6 +53,5 @@ public class RetrofitLoginHelper implements LoginBaseClassHelper {
 				loginCallback.onLoginFailure(t.getMessage());
 			}
 		});
-
 	}
 }

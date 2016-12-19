@@ -15,11 +15,11 @@ public class LoginDataImp implements LoginData{
 		private LoginBaseClassHelper loginBaseClassHelper;
 	 	private LoginMain login;
 
-	public LoginDataImp(LoginMainImp login, RetrofitLoginHelper retrofitLoginHelper) {
-		this.login=login;
-		this.loginBaseClassHelper=retrofitLoginHelper;
-
+	public LoginDataImp(LoginMain login,LoginBaseClassHelper loginBaseClassHelper) {
+		this.loginBaseClassHelper = loginBaseClassHelper;
+		this.login = login;
 	}
+
 
 	@Override
 	public void getLoginData(String mobile, String firm, String name, String city, String category) {

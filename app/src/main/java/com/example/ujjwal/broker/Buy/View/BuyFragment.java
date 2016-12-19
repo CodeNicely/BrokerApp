@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -42,6 +44,9 @@ public class BuyFragment extends Fragment implements BuyFragmentInterface, View.
 	@BindView(R.id.progress_bar)
 	ProgressBar progressBar;
 
+	@BindView(R.id.type)
+	RadioGroup radioGroup;
+RadioButton radioButton;
 	private String rate, quantity, product, sub_product;
 	private BuyPresenter buyPresenter;
 
@@ -53,14 +58,14 @@ public class BuyFragment extends Fragment implements BuyFragmentInterface, View.
 	@Nullable
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_buy, container, false);
+		View rootView = inflater.inflate(R.layout.fragment_buy_sell, container, false);
 		ButterKnife.bind(this, rootView);
 
 		sharedPrefs = new SharedPrefs(getContext());
 
 		addItemsOnSpinner();
 		initiaise();
-
+		radioGroup.clearCheck();
 		return rootView;
 	}
 
@@ -130,7 +135,9 @@ public class BuyFragment extends Fragment implements BuyFragmentInterface, View.
 				showProgressbar(false);
 				showMessage("Fields cannot be empty");
 			} else {
-				buyPresenter.getBuyData(sharedPrefs.getAccessToken(), product, sub_product, rate, quantity);
+
+				buyPresenter.getBuyData(sharedPrefs.getAccessToken(), product, sub_product,
+						rate, quantity);
 			}
 		}
 	}
