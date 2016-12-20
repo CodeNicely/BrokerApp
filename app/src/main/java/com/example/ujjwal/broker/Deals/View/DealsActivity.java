@@ -131,7 +131,7 @@ public class DealsActivity extends AppCompatActivity implements
 
 		FragmentManager fragmentManager = getSupportFragmentManager();
 		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-		fragmentTransaction.replace(R.id.containerLayout, fragment);
+		fragmentTransaction.replace(R.id.frame_layout_deals, fragment);
 		fragmentTransaction.addToBackStack(null);
 		fragmentTransaction.commit();
 
@@ -143,4 +143,5 @@ public class DealsActivity extends AppCompatActivity implements
 	public void onFragmentInteraction(Uri uri) {
 
 	}
+
 }

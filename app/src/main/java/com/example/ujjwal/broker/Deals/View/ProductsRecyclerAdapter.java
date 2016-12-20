@@ -1,7 +1,6 @@
 package com.example.ujjwal.broker.Deals.View;
 
 import android.content.Context;
-import android.provider.Settings;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -61,23 +60,23 @@ public class ProductsRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
 		final ProductViewHolder productViewHolder= (ProductViewHolder) holder;
 		productViewHolder.productName.setText(productListDetails.getName());
 		productViewHolder.productDescription.setText(productListDetails.getDescription());
-		productViewHolder.productRate.setText(productListDetails.getRate());
+		productViewHolder.productRate.setText(String.valueOf(productListDetails.getRate()));
 		productViewHolder.productRate.append(" ");
 		productViewHolder.productRate.append(productListDetails.getUnit());
 
 		productViewHolder.sellButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				productsFragment.getProductDetails(v,sharedPrefs.getAccessToken(),
-						productListDetailsList.get(position).getId(),1,position);
+				productsFragment.onSellBuy(sharedPrefs.getAccessToken(),
+						productListDetailsList.get(position).getId(),true);
 				Log.i("ProductsRecyclerAdapter","productIDSELL"+productListDetailsList.get(position).getId());
 			}
 		});
 		productViewHolder.buyButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				productsFragment.getProductDetails(v,sharedPrefs.getAccessToken(),
-						productListDetailsList.get(position).getId(),0,position);
+				productsFragment.onSellBuy(sharedPrefs.getAccessToken(),
+						productListDetailsList.get(position).getId(),false);
 				Log.i("ProductsRecyclerAdapter","productIDBUY"+productListDetailsList.get(position).getId());
 
 			}
@@ -101,7 +100,7 @@ public class ProductsRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
 		return productListDetailsList.size();
 	}
 
-	private class ProductViewHolder extends RecyclerView.ViewHolder {
+	class ProductViewHolder extends RecyclerView.ViewHolder {
 
 		@BindView(R.id.product_name)
 		TextView productName;

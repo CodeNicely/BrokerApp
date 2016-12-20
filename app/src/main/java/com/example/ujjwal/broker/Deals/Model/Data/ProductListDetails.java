@@ -11,7 +11,7 @@ public class ProductListDetails {
 	private String description;
 	private String unit;
 
-	public ProductListDetails(String name, int product_id, String image, int rate, String description, String unit) {
+	public ProductListDetails( int product_id,String name, String description,int rate, String unit, String image) {
 		this.name = name;
 		this.product_id = product_id;
 		this.image = image;

@@ -15,7 +15,12 @@ import android.widget.Toast;
 
 import com.example.ujjwal.broker.Deals.Model.Data.ProductListDetails;
 import com.example.ujjwal.broker.Deals.Model.MockProductListDetailsProvider;
+
+import com.example.ujjwal.broker.Deals.Model.MockSellBuyHelper;
 import com.example.ujjwal.broker.Deals.Presenter.ProductListPresenter;
+import com.example.ujjwal.broker.Deals.Presenter.ProductListPresenterImpl;
+import com.example.ujjwal.broker.Deals.Presenter.SellBuyPresenter;
+import com.example.ujjwal.broker.Deals.Presenter.SellBuyPresenterImpl;
 import com.example.ujjwal.broker.R;
 import com.example.ujjwal.broker.helper.SharedPrefs;
 
@@ -45,11 +50,12 @@ public class ProductsFragment extends Fragment implements ProductView {
 	@BindView(R.id.toolbar)
 	Toolbar toolbar;
 
+
 	private OnFragmentInteractionListener mListener;
 	SharedPrefs sharedPrefs;
 	ProductListPresenter productListPresenter;
 	ProductsRecyclerAdapter productsRecyclerAdapter;
-
+	SellBuyPresenter sellBuyPresenter;
 	/**
 	 * Use this factory method to create a new instance of
 	 * this fragment using the provided parameters.
@@ -100,6 +106,8 @@ public class ProductsFragment extends Fragment implements ProductView {
 	}
 
 	private void initialise() {
+		productListPresenter=new ProductListPresenterImpl(this,new MockProductListDetailsProvider());
+		sellBuyPresenter=new SellBuyPresenterImpl(this,new MockSellBuyHelper());
 		LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
 		recyclerView.setLayoutManager(linearLayoutManager);
 		recyclerView.setHasFixedSize(true);
@@ -155,7 +163,7 @@ public class ProductsFragment extends Fragment implements ProductView {
 	@Override
 	public void setProductData(List<ProductListDetails> productListDetails) {
 		if (productListDetails.size()==0){
-		recyclerView.setVisibility(View.INVISIBLE);
+		recyclerView.setVisibility(View.GONE);
 		}else {
 		recyclerView.setVisibility(View.VISIBLE);
 		}
@@ -166,8 +174,9 @@ public class ProductsFragment extends Fragment implements ProductView {
 	}
 
 
-	public void getProductDetails(View v, String accessToken, int id, int i, int position) {
-
+	public void onSellBuy(String accessToken, int id,boolean i) {
+		sellBuyPresenter.getSellBuyDetails(accessToken, id, i);
+	//  1-sell 0-buy ---->(i)
 	}
 
 
@@ -181,6 +190,7 @@ public class ProductsFragment extends Fragment implements ProductView {
 	 * "http://developer.android.com/training/basics/fragments/communicating.html"
 	 * >Communicating with Other Fragments</a> for more information.
 	 */
+
 	public interface OnFragmentInteractionListener {
 		// TODO: Update argument type and name
 		void onFragmentInteraction(Uri uri);
