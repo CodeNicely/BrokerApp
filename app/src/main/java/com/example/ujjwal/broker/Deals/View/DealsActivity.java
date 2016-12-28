@@ -17,9 +17,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.ujjwal.broker.Buy.View.BuyFragment;
-import com.example.ujjwal.broker.Fragments.ContactUsFragment;
+import com.example.ujjwal.broker.ContactUs.View.ContactUsFragment;
 import com.example.ujjwal.broker.R;
 
 
@@ -83,8 +84,18 @@ public class DealsActivity extends AppCompatActivity implements
 		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 		if (drawer.isDrawerOpen(GravityCompat.START)) {
 			drawer.closeDrawer(GravityCompat.START);
-		} else {
+		}
+		else  if (getSupportFragmentManager().getBackStackEntryCount()== 1) {
+
+		//	getSupportFragmentManager().popBackStackImmediate();
+		//	getFragmentManager().popBackStack();
+				getSupportActionBar().show();
+				super.onBackPressed();
+			Toast.makeText(this, "Go back", Toast.LENGTH_SHORT).show();
+		}else if (getSupportFragmentManager().getBackStackEntryCount()>1){
 			super.onBackPressed();
+			Toast.makeText(this, "Go back", Toast.LENGTH_SHORT).show();
+
 		}
 	}
 
@@ -114,11 +125,11 @@ public class DealsActivity extends AppCompatActivity implements
 			finish();
 		}else if (id == R.id.buy){
 			getSupportActionBar().hide();
-			addFragment(new BuyFragment(),"Buy");
+			addFragment(new BuyFragment());
 
 		}else {
 				getSupportActionBar().hide();
-					addFragment(new ContactUsFragment(),"Contact Us");
+					addFragment(new ContactUsFragment());
 		}
 
 		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -126,7 +137,7 @@ public class DealsActivity extends AppCompatActivity implements
 		return true;
 	}
 
-	private void addFragment(Fragment fragment,String title) {
+	private void addFragment(Fragment fragment) {
 
 
 		FragmentManager fragmentManager = getSupportFragmentManager();
@@ -135,7 +146,6 @@ public class DealsActivity extends AppCompatActivity implements
 		fragmentTransaction.addToBackStack(null);
 		fragmentTransaction.commit();
 
-		getSupportActionBar().setTitle(title);
 	}
 
 

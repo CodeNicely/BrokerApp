@@ -3,6 +3,7 @@ package com.example.ujjwal.broker.Buy.View;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,14 +33,12 @@ import butterknife.ButterKnife;
 public class BuyFragment extends Fragment implements BuyFragmentInterface, View.OnClickListener {
 	private static final String TAG = "BuyFragment";
 
+	@BindView(R.id.spinner_category)
+	 Spinner spinnerCategory;
 	@BindView(R.id.spinner_product)
 	 Spinner spinnerProduct;
-	@BindView(R.id.spinner_subproduct)
-	 Spinner spinnerSubProduct;
 	@BindView(R.id.buy_rate)
 	 EditText editTextRate;
-	@BindView(R.id.buy_quantity)
-	 EditText editTextQuantity;
 	@BindView(R.id.buy_submit)
 	 Button submit;
 	@BindView(R.id.progress_bar)
@@ -49,8 +48,7 @@ public class BuyFragment extends Fragment implements BuyFragmentInterface, View.
 
 	@BindView(R.id.type)
 	RadioGroup radioGroup;
-	RadioButton radioButton;
-	private String rate, quantity, product, sub_product;
+	private String rate, product, category;
 	private BuyPresenter buyPresenter;
 
 
@@ -63,6 +61,15 @@ public class BuyFragment extends Fragment implements BuyFragmentInterface, View.
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_buy_sell, container, false);
 		ButterKnife.bind(this, rootView);
+
+		toolbar.setTitle("Buy/Sell");
+		toolbar.setNavigationIcon(ContextCompat.getDrawable(getContext(),R.drawable.ic_menu_camera));
+		toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				getActivity().onBackPressed();
+			}
+		});
 
 		sharedPrefs = new SharedPrefs(getContext());
 
@@ -80,19 +87,18 @@ public class BuyFragment extends Fragment implements BuyFragmentInterface, View.
 		spinnerProduct.setAdapter(adapter1);
 		ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getActivity(),
 			android.R.layout.simple_list_item_1, SPINNERVALUES_SUBPRODUCT);
-		spinnerSubProduct.setAdapter(adapter2);
+		spinnerCategory.setAdapter(adapter2);
 
 	}
 
 	private void initiaise() {
 		buyPresenter = new BuyPresenterImp(this, new RetrofitBuyHelper());
 		rate = editTextRate.getText().toString();
-		quantity = editTextQuantity.getText().toString();
 		submit.setOnClickListener(this);
-		spinnerProduct.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+		spinnerCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-				product = (String) spinnerProduct.getSelectedItem();
+				category = (String) spinnerCategory.getSelectedItem();
 			}
 
 			@Override
@@ -100,10 +106,10 @@ public class BuyFragment extends Fragment implements BuyFragmentInterface, View.
 
 			}
 		});
-		spinnerSubProduct.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+		spinnerProduct.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-				sub_product = (String) spinnerSubProduct.getSelectedItem();
+				product = (String) spinnerProduct.getSelectedItem();
 			}
 
 			@Override
@@ -135,13 +141,13 @@ public class BuyFragment extends Fragment implements BuyFragmentInterface, View.
 	@Override
 	public void onClick(View v) {
 		if (v == submit) {
-			if (rate.isEmpty() || quantity.isEmpty() || product.isEmpty() || sub_product.isEmpty()) {
+			if (rate.isEmpty() ||  product.isEmpty() || category.isEmpty()) {
 				showProgressbar(false);
 				showMessage("Fields cannot be empty");
 			} else {
 
-				buyPresenter.getBuyData(sharedPrefs.getAccessToken(), product, sub_product,
-						rate, quantity);
+				buyPresenter.getBuyData(sharedPrefs.getAccessToken(), product, category,
+						rate);
 			}
 		}
 	}

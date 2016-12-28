@@ -3,13 +3,19 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<android.support.v7.widget.Toolbar
-    android:id="@+id/toolbar_buy_sell"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-</android.support.v7.widget.Toolbar>
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_buy_sell"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,7 +44,7 @@
         android:orientation="vertical">
 
         <Spinner
-            android:id="@+id/spinner_product"
+            android:id="@+id/spinner_category"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:entries="@array/android_dropdown_arrays"
@@ -50,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp">
         <Spinner
-            android:id="@+id/spinner_subproduct"
+            android:id="@+id/spinner_product"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:entries="@array/android_dropdown_arrays"
@@ -71,21 +77,7 @@
             android:maxLength="5"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Quantity(in Ton)"
-            />
-        <EditText
-            android:layout_width="fill_parent"
-            android:id="@+id/buy_quantity"
-            android:layout_height="wrap_content"
-            android:maxLength="5"/>
-    </LinearLayout>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

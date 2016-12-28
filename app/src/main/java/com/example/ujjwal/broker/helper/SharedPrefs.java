@@ -14,7 +14,9 @@ public class SharedPrefs {
 	private static final String PREFERENCE_NAME="Welcome";
 	private static final String KEY_MOBILE = "mobile";
 	private static final String KEY_ACCESS_TOKEN ="access_token" ;
-
+	private static final String KEY_HELPLINE_NUMBER1="helpline_mobile1";
+	private static final String KEY_HELPLINE_NUMBER2="helpline_mobile2";
+	private static final String KEY_HELPLINE_NUMBER3="helpline_mobile3";
 	//Shared Preferences
 	SharedPreferences pref ;
 	SharedPreferences.Editor editor;
@@ -54,5 +56,32 @@ public class SharedPrefs {
 	public  void setAccessToken(String accessToken){
 		editor.putString(KEY_ACCESS_TOKEN,accessToken);
 		editor.commit();
+	}
+	public void setHelplineNumber1(String helpline_number) {
+		editor.putString(KEY_HELPLINE_NUMBER1, helpline_number);
+
+		editor.commit();
+
+	}
+
+	public void setHelplineNumber2(String helpline_number) {
+		editor.putString(KEY_HELPLINE_NUMBER2, helpline_number);
+
+		editor.commit();
+
+	}public void setHelplineNumber3(String helpline_number) {
+		editor.putString(KEY_HELPLINE_NUMBER3, helpline_number);
+
+		editor.commit();
+
+	}
+	public String getHelplineNumber1() {
+		return pref.getString(KEY_HELPLINE_NUMBER1,"9425503905");
+	}
+	public String getHelplineNumber2() {
+		return pref.getString(KEY_HELPLINE_NUMBER1,"9406202298");
+	}
+	public String getHelplineNumber3() {
+		return pref.getString(KEY_HELPLINE_NUMBER1,"9300293177");
 	}
 }

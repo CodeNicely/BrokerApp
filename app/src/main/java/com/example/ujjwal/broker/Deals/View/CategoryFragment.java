@@ -39,8 +39,6 @@ public class CategoryFragment extends Fragment implements CategoryView {
 	@BindView(R.id.viewpager_deals)
 	ViewPager viewPager;
 
-	@BindView(R.id.toolbar)
-	Toolbar toolbar;
 	@BindView(R.id.progressBar)
 	ProgressBar progressBar;
 	@BindView(R.id.tablayout_deals)

@@ -12,4 +12,6 @@ public class Urls {
 	public static final String SUB_URL_BUY_SELL ="register_deals/";
 	public static final String SUB_URL_CATEGORY ="category/";
 	public static final String SUB_URL_PRODUCT ="product/" ;
+
+	public static final String SUB_URL_CONTACT_US="contact_us/";
 }

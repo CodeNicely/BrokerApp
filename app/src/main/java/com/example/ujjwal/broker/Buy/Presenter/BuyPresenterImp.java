@@ -23,7 +23,7 @@ public class BuyPresenterImp implements  BuyPresenter {
 
 
 	@Override
-	public void getBuyData(String access_token,String product, String sub_product,String rate,String quantity) {
+	public void getBuyData(String access_token, String product, String sub_product, String rate) {
 		buyFragment.showProgressbar(true);
 		buyHelper.buyData(access_token,true,product, sub_product, rate, quantity, new BuyCallback() {
 
