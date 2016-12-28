@@ -3,6 +3,7 @@ package com.example.ujjwal.broker.Buy.View;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,10 +44,12 @@ public class BuyFragment extends Fragment implements BuyFragmentInterface, View.
 	 Button submit;
 	@BindView(R.id.progress_bar)
 	ProgressBar progressBar;
+	@BindView(R.id.toolbar_buy_sell)
+	Toolbar toolbar;
 
 	@BindView(R.id.type)
 	RadioGroup radioGroup;
-RadioButton radioButton;
+	RadioButton radioButton;
 	private String rate, quantity, product, sub_product;
 	private BuyPresenter buyPresenter;
 
@@ -62,6 +65,7 @@ RadioButton radioButton;
 		ButterKnife.bind(this, rootView);
 
 		sharedPrefs = new SharedPrefs(getContext());
+
 
 		addItemsOnSpinner();
 		initiaise();

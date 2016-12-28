@@ -51,7 +51,7 @@ public class DealsActivity extends AppCompatActivity implements
 
 		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 		ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-			this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+			this, drawer, toolbar, R.string.navigation_drawer_open,R.string.navigation_drawer_close);
 		drawer.setDrawerListener(toggle);
 		toggle.syncState();
 
@@ -113,12 +113,12 @@ public class DealsActivity extends AppCompatActivity implements
 			startActivity(deals);
 			finish();
 		}else if (id == R.id.buy){
-
-			addFragment(new BuyFragment(),"Buy");
 			getSupportActionBar().hide();
+			addFragment(new BuyFragment(),"Buy");
 
 		}else {
-			addFragment(new ContactUsFragment(),"Contact Us");
+				getSupportActionBar().hide();
+					addFragment(new ContactUsFragment(),"Contact Us");
 		}
 
 		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

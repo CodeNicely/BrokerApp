@@ -8,6 +8,4 @@ public interface LoginMain {
 	void showProgressBar(boolean show);
 	void showLoginStatus(boolean login);
 	void showError(String message);
-
-
 }

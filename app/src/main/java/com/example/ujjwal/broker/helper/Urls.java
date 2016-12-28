@@ -5,7 +5,7 @@ package com.example.ujjwal.broker.helper;
  */
 public class Urls {
 
-	public static final String BASE_URL="http://192.168.42.152:8888/";
+	public static final String BASE_URL="http://192.168.42.202:8888/";
 	public static final String SUB_URL_SPLASH_SCREEN ="splash_screen/";
 	public static final String SUB_URL_LOGIN = "send_otp/";
 	public static final String SUB_URL_VERIFY = "verify_otp/";
