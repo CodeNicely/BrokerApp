@@ -19,9 +19,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.ujjwal.broker.Buy.View.BuyFragment;
+
 import com.example.ujjwal.broker.ContactUs.View.ContactUsFragment;
 import com.example.ujjwal.broker.R;
+import com.example.ujjwal.broker.SellBuy.View.SellBuyFragment;
 
 
 import butterknife.BindView;
@@ -32,7 +33,8 @@ import butterknife.ButterKnife;
  */
 
 public class DealsActivity extends AppCompatActivity implements
-		NavigationView.OnNavigationItemSelectedListener,ProductsFragment.OnFragmentInteractionListener {
+		NavigationView.OnNavigationItemSelectedListener,
+	ProductsFragment.OnFragmentInteractionListener,ContactUsFragment.OnFragmentInteractionListener,SellBuyFragment.OnFragmentInteractionListener {
 
 	@BindView(R.id.coordinator_layout)
 	CoordinatorLayout coordinatorLayout;
@@ -123,9 +125,9 @@ public class DealsActivity extends AppCompatActivity implements
 			Intent deals =new Intent(DealsActivity.this,DealsActivity.class);
 			startActivity(deals);
 			finish();
-		}else if (id == R.id.buy){
+		}else if (id == R.id.buy_sell){
 			getSupportActionBar().hide();
-			addFragment(new BuyFragment());
+			addFragment(new SellBuyFragment());
 
 		}else {
 				getSupportActionBar().hide();

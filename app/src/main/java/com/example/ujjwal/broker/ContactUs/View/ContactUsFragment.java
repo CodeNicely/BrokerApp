@@ -36,7 +36,7 @@ import butterknife.ButterKnife;
 public class ContactUsFragment extends Fragment implements ContactUsView{
 
 
-	@BindView(R.id.toolbar)
+	@BindView(R.id.toolbar_contact_us)
 	Toolbar toolbar;
 	@BindView(R.id.progressBar)
 	ProgressBar progressBar;
@@ -161,6 +161,7 @@ public class ContactUsFragment extends Fragment implements ContactUsView{
 				startActivity(callIntent1);
 			}
 		});
+
 
 		phoneCard2.setOnClickListener(new View.OnClickListener() {
 			@Override

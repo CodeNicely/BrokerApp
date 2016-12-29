@@ -9,7 +9,7 @@
 
         <item
             android:icon="@drawable/ic_menu_slideshow"
-            android:id="@+id/buy"
+            android:id="@+id/buy_sell"
             android:title="Buy/Sell"/>
         <item
             android:icon="@drawable/ic_menu_slideshow"

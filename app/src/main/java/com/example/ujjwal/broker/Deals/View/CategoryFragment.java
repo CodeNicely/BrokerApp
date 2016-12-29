@@ -98,7 +98,7 @@ public class CategoryFragment extends Fragment implements CategoryView {
 				viewPager.setVisibility(View.VISIBLE);
 			}
 		}
-		List<CategoryDetails> categoryDetailsList = new ArrayList<>();
+		List<CategoryDetails> categoryDetailsList ;
 		categoryDetailsList = categoryData.getCategoryList();
 
 		List<Fragment> fragmentList = new ArrayList<>();
