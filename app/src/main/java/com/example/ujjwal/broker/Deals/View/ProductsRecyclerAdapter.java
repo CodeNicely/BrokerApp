@@ -60,8 +60,9 @@ public class ProductsRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
 		final ProductViewHolder productViewHolder= (ProductViewHolder) holder;
 		productViewHolder.productName.setText(productListDetails.getName());
 		productViewHolder.productDescription.setText(productListDetails.getDescription());
-		productViewHolder.productRate.setText(String.valueOf(productListDetails.getPrice()));
-		productViewHolder.productRate.append(" ");
+		productViewHolder.productRate.setText("Rs ");
+		productViewHolder.productRate.append(String.valueOf(productListDetails.getPrice()));
+		productViewHolder.productRate.append(" / ");
 		productViewHolder.productRate.append(productListDetails.getUnit());
 
 		productViewHolder.sellButton.setOnClickListener(new View.OnClickListener() {
