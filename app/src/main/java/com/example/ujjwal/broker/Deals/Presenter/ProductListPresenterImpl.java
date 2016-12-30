@@ -27,18 +27,18 @@ public class ProductListPresenterImpl implements ProductListPresenter {
 		productListDetailsProvider.requestProductList(access_token,category_id,	new ProductCallback() {
 			@Override
 			public void onSuccess(ProductListData productListData) {
+				productView.showProgressBar(false);
 				if (productListData.isSuccess()){
-					Log.i("ProductPresenter","List Recieved Size:"+productListData.getProductDetails().size());
+//					Log.i("ProductPresenter","List Recieved Size:"+productListData.getProductDetails().size());
 					productView.setProductData(productListData.getProductDetails());
 				}else {
 					productView.showMessage("Something Went Wrong");
 				}
-				productView.showProgressBar(false);
 			}
 
 			@Override
 			public void onFailure() {
-
+				productView.showMessage("Wrong Products");
 			}
 		});
 	}

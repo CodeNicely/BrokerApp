@@ -60,7 +60,7 @@ public class ProductsRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
 		final ProductViewHolder productViewHolder= (ProductViewHolder) holder;
 		productViewHolder.productName.setText(productListDetails.getName());
 		productViewHolder.productDescription.setText(productListDetails.getDescription());
-		productViewHolder.productRate.setText(String.valueOf(productListDetails.getRate()));
+		productViewHolder.productRate.setText(String.valueOf(productListDetails.getPrice()));
 		productViewHolder.productRate.append(" ");
 		productViewHolder.productRate.append(productListDetails.getUnit());
 
@@ -87,7 +87,7 @@ public class ProductsRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
 		imageLoader.LoadImage(productListDetails.getImage(),productViewHolder.productImage,
 				productViewHolder.progressBar);
 
-		Glide.with(context).load(productListDetails.getImage()).into(productViewHolder.productImage);
+		//Glide.with(context).load(productListDetails.getImage()).into(productViewHolder.productImage);
 	}
 
 

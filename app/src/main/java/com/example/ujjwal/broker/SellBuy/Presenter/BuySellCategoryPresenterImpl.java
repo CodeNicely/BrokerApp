@@ -19,9 +19,9 @@ public class BuySellCategoryPresenterImpl implements BuySellCategoryPresenter {
 	}
 
 	@Override
-	public void requestSellBuyCategoryList() {
+	public void requestSellBuyCategoryList(String access_token) {
 		buySellView.showProgressBar(true);
-		buySellCategoryProvider.requestCategoryList(new BuySellCategoryCallback() {
+		buySellCategoryProvider.requestCategoryList(access_token,new BuySellCategoryCallback() {
 			@Override
 			public void onSuccess(SellBuyData sellBuyData) {
 				buySellView.showProgressBar(false);

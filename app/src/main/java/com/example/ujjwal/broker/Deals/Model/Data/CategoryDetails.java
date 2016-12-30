@@ -6,18 +6,18 @@ package com.example.ujjwal.broker.Deals.Model.Data;
  * Created by ujjwal on 19/12/16.
  */
 public class CategoryDetails {
-private int category_id;
+private int id;
 	private String name;
 	private String description;
 
-	public CategoryDetails(int category_id,String name,String description){
-		this.description=description;
-		this.name=name;
-		this.category_id=category_id;
+	public CategoryDetails(int id, String name, String description) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
 	}
 
 	public int getId(){
-		return category_id;
+		return id;
 	}
 	public String getName(){
 		return name;

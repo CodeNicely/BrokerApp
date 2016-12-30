@@ -10,12 +10,12 @@ public class ProductListData {
 	private boolean success;
 	private String message;
 
-	private List<ProductListDetails> productListDetails=new ArrayList<>();
+	private List<ProductListDetails> product_list =new ArrayList<>();
 
-	public ProductListData(boolean success, String message, List<ProductListDetails> productListDetails) {
+	public ProductListData(boolean success, String message, List<ProductListDetails> product_list) {
 		this.success = success;
 		this.message = message;
-		this.productListDetails = productListDetails;
+		this.product_list = product_list;
 	}
 
 	public boolean isSuccess(){
@@ -25,7 +25,7 @@ public class ProductListData {
 		return message;
 	}
 	public List<ProductListDetails> getProductDetails(){
-		return productListDetails;
+		return product_list;
 	}
 
 }

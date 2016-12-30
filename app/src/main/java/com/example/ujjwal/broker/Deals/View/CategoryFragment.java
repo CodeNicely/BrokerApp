@@ -1,10 +1,12 @@
 package com.example.ujjwal.broker.Deals.View;
 
+import android.content.res.ColorStateList;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -55,11 +57,13 @@ public class CategoryFragment extends Fragment implements CategoryView {
 		sharedPrefs=new SharedPrefs(getContext());
 
 
-		categoryPresenter=new CategoryPresenterImpl(this,new MockCategoryDetailsProvider());
+		categoryPresenter=new CategoryPresenterImpl(this,new RetrofitCategoryProvider());
 
 		viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
 		viewPager.setAdapter(viewPagerAdapter);
 		tabLayout.setupWithViewPager(viewPager);
+		tabLayout.setTabTextColors(ColorStateList.valueOf(ContextCompat.getColor(getContext(),
+				R.color.textColorPrimary)));
 
 		categoryPresenter.requestCategoryDetails(sharedPrefs.getAccessToken());
 		return view;

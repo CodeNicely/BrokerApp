@@ -5,17 +5,17 @@ package com.example.ujjwal.broker.Deals.Model.Data;
  */
 public class ProductListDetails {
 	private String name;
-	private int product_id;
+	private int id;
 	private String image;
-	private int rate;
+	private int price;
 	private String description;
 	private String unit;
 
-	public ProductListDetails( int product_id,String name, String description,int rate, String unit, String image) {
+	public ProductListDetails(String name, int id, String image, int price, String description, String unit) {
 		this.name = name;
-		this.product_id = product_id;
+		this.id = id;
 		this.image = image;
-		this.rate = rate;
+		this.price = price;
 		this.description = description;
 		this.unit = unit;
 	}
@@ -27,10 +27,10 @@ public class ProductListDetails {
 		return image;
 	}
 	public int getId(){
-		return product_id;
+		return id;
 	}
-	public int getRate(){
-		return rate;
+	public int getPrice(){
+		return price;
 	}
 
 	public String getDescription() {

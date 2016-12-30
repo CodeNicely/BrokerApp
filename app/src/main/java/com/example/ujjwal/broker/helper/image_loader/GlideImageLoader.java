@@ -40,7 +40,6 @@ public class GlideImageLoader implements ImageLoader {
 
 		requestManager.load(url).crossFade().thumbnail(0.1f);
 		requestManager.load(url).crossFade().thumbnail(0.05f);
-
 		requestManager.load(url).crossFade().thumbnail(1f)
 				.listener(new RequestListener<String, GlideDrawable>() {
 					@Override
@@ -60,8 +59,6 @@ public class GlideImageLoader implements ImageLoader {
 						if (progressBar != null) {
 							progressBar.setVisibility(View.GONE);
 						}
-
-
 						return false;
 					}
 				}).diskCacheStrategy(DiskCacheStrategy.SOURCE)

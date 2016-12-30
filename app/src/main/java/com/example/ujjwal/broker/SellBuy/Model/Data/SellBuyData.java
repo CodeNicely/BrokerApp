@@ -9,7 +9,19 @@ import java.util.List;
 public class SellBuyData {
 	private boolean success;
 	private String message;
-	private List<SellBuyCategoryDetails> categoryDetailsList;
+	private ArrayList<SellBuyCategoryDetails> category_list;
+	private ArrayList<String> unit_list;
+
+	public List<String> getUnit_list() {
+		return unit_list;
+	}
+
+	public SellBuyData(boolean success, String message, ArrayList<SellBuyCategoryDetails> category_list, ArrayList<String> unit_list) {
+		this.success = success;
+		this.message = message;
+		this.category_list = category_list;
+		this.unit_list = unit_list;
+	}
 
 	public boolean isSuccess() {
 		return success;
@@ -19,13 +31,7 @@ public class SellBuyData {
 		return message;
 	}
 
-	public List<SellBuyCategoryDetails> getCategoryDetailsList() {
-		return categoryDetailsList;
-	}
-
-	public SellBuyData(boolean success, String message, List<SellBuyCategoryDetails> categoryDetailsList) {
-		this.success = success;
-		this.message = message;
-		this.categoryDetailsList = categoryDetailsList;
+	public ArrayList<SellBuyCategoryDetails> getCategory_list() {
+		return category_list;
 	}
 }

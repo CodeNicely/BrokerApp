@@ -5,13 +5,20 @@ package com.example.ujjwal.broker.helper;
  */
 public class Urls {
 
-	public static final String BASE_URL="http://192.168.42.202:8888/";
+	public static final String BASE_URL="http://192.168.0.116:8888/";
+
 	public static final String SUB_URL_SPLASH_SCREEN ="splash_screen/";
+
 	public static final String SUB_URL_LOGIN = "send_otp/";
+
 	public static final String SUB_URL_VERIFY = "verify_otp/";
-	public static final String SUB_URL_BUY_SELL ="register_deals/";
-	public static final String SUB_URL_CATEGORY ="category/";
-	public static final String SUB_URL_PRODUCT ="product/" ;
+
+	public static final String SUB_URL_CATEGORY ="get_categories/";
+	public static final String SUB_URL_PRODUCT ="get_products/" ;
+
+	public static final String SUB_URL_BUY_SELL ="add_sell_buy/";
+	public static final String SUB_URL_BUY_SELL_CATEGORY ="get_categories/" ;
 
 	public static final String SUB_URL_CONTACT_US="contact_us/";
+
 }

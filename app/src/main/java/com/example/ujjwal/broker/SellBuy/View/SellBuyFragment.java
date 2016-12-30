@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,22 +18,16 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.ujjwal.broker.Deals.Model.Data.CategoryDetails;
 import com.example.ujjwal.broker.R;
 import com.example.ujjwal.broker.SellBuy.Model.Data.SellBuyCategoryDetails;
 import com.example.ujjwal.broker.SellBuy.Model.Data.SellBuyData;
-import com.example.ujjwal.broker.SellBuy.Model.Data.SellBuyProductData;
-import com.example.ujjwal.broker.SellBuy.Model.Data.SellBuyProductDetails;
 import com.example.ujjwal.broker.SellBuy.Model.RetrofitBuySellCategoryProvider;
 
 import com.example.ujjwal.broker.SellBuy.Model.RetrofitBuySellHelper;
-import com.example.ujjwal.broker.SellBuy.Model.RetrofitBuySellProductProvider;
 import com.example.ujjwal.broker.SellBuy.Presenter.BuySellCategoryPresenter;
 import com.example.ujjwal.broker.SellBuy.Presenter.BuySellCategoryPresenterImpl;
 import com.example.ujjwal.broker.SellBuy.Presenter.BuySellPresenter;
 import com.example.ujjwal.broker.SellBuy.Presenter.BuySellPresenterImpl;
-import com.example.ujjwal.broker.SellBuy.Presenter.BuySellProductPresenter;
-import com.example.ujjwal.broker.SellBuy.Presenter.BuySellProductPresenterImpl;
 import com.example.ujjwal.broker.helper.SharedPrefs;
 
 import java.util.ArrayList;
@@ -53,8 +48,14 @@ public class SellBuyFragment extends Fragment implements BuySellView, View.OnCli
 
 	@BindView(R.id.spinner_category)
 	Spinner spinnerCategory;
-	@BindView(R.id.spinner_product)
-	Spinner spinnerProduct;
+	@BindView(R.id.spinner_unit)
+	Spinner spinnerUnit;
+
+	@BindView(R.id.edittext_product_name)
+	EditText editTextProductName;
+	@BindView(R.id.edittext_product_description)
+	EditText editTextProductDescription;
+
 	@BindView(R.id.buy_rate)
 	EditText editTextPrice;
 
@@ -67,13 +68,12 @@ public class SellBuyFragment extends Fragment implements BuySellView, View.OnCli
 
 	@BindView(R.id.type)
 	RadioGroup radioGroup;
-	private String price,product, category;
-	private int product_id;
+	private String price,product_name,product_description, category,unit;
+
 	private BuySellCategoryPresenter buySellCategoryPresenter;
-	private BuySellProductPresenter buySellProductPresenter;
 	private BuySellPresenter buySellPresenter;
 	private SharedPrefs sharedPrefs;
-
+	private 	int j=0;//category_id
 	private OnFragmentInteractionListener mListener;
 
 	public SellBuyFragment() {
@@ -91,21 +91,18 @@ public class SellBuyFragment extends Fragment implements BuySellView, View.OnCli
 
 
 		toolbar.setTitle("Sell/Buy");
-		toolbar.setNavigationIcon(R.drawable.ic_menu_camera);
+		toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
 		toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				getActivity().onBackPressed();
 			}
 		});
+
 		buySellCategoryPresenter=new BuySellCategoryPresenterImpl(this,new RetrofitBuySellCategoryProvider());
-		buySellCategoryPresenter.requestSellBuyCategoryList();
+		buySellCategoryPresenter.requestSellBuyCategoryList(sharedPrefs.getAccessToken());
 
-		buySellProductPresenter=new BuySellProductPresenterImpl(this,new RetrofitBuySellProductProvider());
 		buySellPresenter=new BuySellPresenterImpl(this,new RetrofitBuySellHelper());
-
-
-		price = editTextPrice.getText().toString();
 
 		submit.setOnClickListener(this);
 
@@ -127,7 +124,7 @@ public class SellBuyFragment extends Fragment implements BuySellView, View.OnCli
 			mListener = (OnFragmentInteractionListener) context;
 		} else {
 			throw new RuntimeException(context.toString()
-											   + " must implement OnFragmentInteractionListener");
+						   + " must implement OnFragmentInteractionListener");
 		}
 	}
 
@@ -157,13 +154,14 @@ public class SellBuyFragment extends Fragment implements BuySellView, View.OnCli
 	public void setCategoryList(SellBuyData sellBuyData) {
 
 
-		final List<SellBuyCategoryDetails> categoryDetailsList ;
-		categoryDetailsList = sellBuyData.getCategoryDetailsList();
+		final ArrayList<SellBuyCategoryDetails> categoryDetailsList;
+		Log.d(TAG,sellBuyData.getCategory_list().toString());
+		categoryDetailsList = sellBuyData.getCategory_list();
 		final ArrayList<String> categoryNameList=new ArrayList<>();
 		final ArrayList<Integer> categoryIdList=new ArrayList<>();
 		for (int i=0;i<categoryDetailsList.size();i++) {
-			categoryNameList.set(i,categoryDetailsList.get(i).getCategory_name());
-			categoryIdList.set(i,categoryDetailsList.get(i).getCategory_id());
+			categoryNameList.add(categoryDetailsList.get(i).getName());
+			categoryIdList.add(categoryDetailsList.get(i).getId());
 		}
 		ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getActivity(),
 						android.R.layout.simple_list_item_1,categoryNameList);
@@ -174,7 +172,7 @@ public class SellBuyFragment extends Fragment implements BuySellView, View.OnCli
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 				category= (String) spinnerCategory.getSelectedItem();
-				int j=0;
+
 				for (int i=0;i<categoryDetailsList.size();i++){
 					if (categoryNameList.get(i)==category){
 						 j=i;
@@ -182,9 +180,7 @@ public class SellBuyFragment extends Fragment implements BuySellView, View.OnCli
 
 					}
 				}
-
-				buySellProductPresenter.requestProductList(categoryIdList.get(j));
-
+					//category_id=j
 			}
 
 			@Override
@@ -194,39 +190,13 @@ public class SellBuyFragment extends Fragment implements BuySellView, View.OnCli
 		});
 
 
-	}
-
-	@Override
-	public void setProductList(SellBuyProductData sellBuyProductData) {
-		final List<SellBuyProductDetails> productDetailsList ;
-		productDetailsList = sellBuyProductData.getSellBuyProductDetailsList();
-		final ArrayList<String> productNameList=new ArrayList<>();
-		final ArrayList<Integer> productIdList=new ArrayList<>();
-
-		for (int i=0;i<productDetailsList.size();i++) {
-			productNameList.set(i,productDetailsList.get(i).getProduct_name());
-			productIdList.set(i,productDetailsList.get(i).getProduct_id());
-		}
-
-		ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getActivity(),
-								android.R.layout.simple_list_item_1,productNameList);
-		spinnerProduct.setAdapter(adapter1);
-
-		spinnerProduct.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+		ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getActivity(),
+							android.R.layout.simple_list_item_1,sellBuyData.getUnit_list());
+		spinnerUnit.setAdapter(adapter2);
+		spinnerUnit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-				product= (String) spinnerProduct.getSelectedItem();
-				int j=0;
-				for (int i=0;i<productDetailsList.size();i++){
-					if (productNameList.get(i)==product){
-						j=i;
-						break;
-
-					}
-				}
-
-				product_id=(productIdList.get(j));
-
+				unit= (String) spinnerUnit.getSelectedItem();
 			}
 
 			@Override
@@ -234,19 +204,27 @@ public class SellBuyFragment extends Fragment implements BuySellView, View.OnCli
 
 			}
 		});
+
+
+
 
 	}
 
 	@Override
 	public void onClick(View v) {
+
+		product_name=editTextProductName.getText().toString();
+		product_description=editTextProductDescription.getText().toString();
+		price = editTextPrice.getText().toString();
+
 		if (v == submit) {
-			if (price.isEmpty() ||  product.isEmpty() || category.isEmpty()) {
+			if (price.isEmpty() ||  product_name.isEmpty()||product_description.isEmpty() || category.isEmpty()) {
 				showProgressBar(false);
 				showMessage("Fields cannot be empty");
 			} else {
 
 
-				buySellPresenter.getBuySellData(sharedPrefs.getAccessToken(),product_id,price);
+				buySellPresenter.getBuySellData(sharedPrefs.getAccessToken(),j,product_name,product_description,price,unit);
 			}
 		}
 	}

@@ -4,15 +4,15 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/daily_rates"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/deals_icon"
             android:title="Daily Rates " />
 
         <item
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/buy_sell_icon"
             android:id="@+id/buy_sell"
             android:title="Buy/Sell"/>
         <item
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_contacts_black_24dp"
             android:id="@+id/contact_us"
             android:title="Contact Us" />
     </group>

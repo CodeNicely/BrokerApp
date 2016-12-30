@@ -17,7 +17,7 @@ public class MockProductListDetailsProvider implements ProductListDetailsProvide
 	public void requestProductList(String access_token, int category_id, ProductCallback productCallback) {
 		List<ProductListDetails> productListDetails =new ArrayList<>();
 		for (int i=0;i<10;i++){
-			ProductListDetails productDetails=new ProductListDetails(i,"Name","Description",1000,"Unit","ABCD");
+			ProductListDetails productDetails=new ProductListDetails("Name",i,"Description",1000,"Unit","ABCD");
 			productListDetails.add(productDetails);
 		}
 

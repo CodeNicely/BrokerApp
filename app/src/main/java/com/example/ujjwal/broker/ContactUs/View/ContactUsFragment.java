@@ -86,7 +86,7 @@ public class ContactUsFragment extends Fragment implements ContactUsView{
 
 		ButterKnife.bind(this,view);
 
-		toolbar.setNavigationIcon(R.drawable.ic_menu_camera);
+		toolbar.setNavigationIcon(R.mipmap.ic_arrow_back_white_24dp);
 		toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -145,6 +145,7 @@ public class ContactUsFragment extends Fragment implements ContactUsView{
 
 	@Override
 	public void setContactUsData(ContactUsData contactUsData) {
+
 		name1.setText(contactUsData.getName1());
 		name2.setText(contactUsData.getName2());
 		name3.setText(contactUsData.getName3());
@@ -152,6 +153,7 @@ public class ContactUsFragment extends Fragment implements ContactUsView{
 		number2.setText(contactUsData.getNumber2());
 		number3.setText(contactUsData.getNumber3());
 		address.setText(contactUsData.getAddress());
+
 
 		phoneCard1.setOnClickListener(new View.OnClickListener() {
 			@Override

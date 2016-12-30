@@ -106,15 +106,7 @@ public class DealsActivity extends AppCompatActivity implements
 		return false;
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
 
-		getMenuInflater().inflate(R.menu.main, menu);
-
-		return true;
-
-
-	}
 
 	@Override
 	public boolean onNavigationItemSelected(@NonNull MenuItem item) {

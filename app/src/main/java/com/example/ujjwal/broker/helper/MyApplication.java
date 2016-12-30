@@ -27,8 +27,7 @@ public class MyApplication extends Application {
 
 	public static String getFcm_token() {
 		Log.d(TAG,"fcm Token is"+ fcm_token);
-
-			return fcm_token;
+		return fcm_token;
 	}
 	public static Context getContext(){
 		return context;

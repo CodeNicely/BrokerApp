@@ -17,6 +17,7 @@ import com.example.ujjwal.broker.Deals.Model.Data.ProductListDetails;
 import com.example.ujjwal.broker.Deals.Model.MockProductListDetailsProvider;
 
 import com.example.ujjwal.broker.Deals.Model.MockSellBuyHelper;
+import com.example.ujjwal.broker.Deals.Model.RetrofitProductProvider;
 import com.example.ujjwal.broker.Deals.Presenter.ProductListPresenter;
 import com.example.ujjwal.broker.Deals.Presenter.ProductListPresenterImpl;
 import com.example.ujjwal.broker.Deals.Presenter.SellBuyPresenter;
@@ -106,7 +107,7 @@ public class ProductsFragment extends Fragment implements ProductView {
 	}
 
 	private void initialise() {
-		productListPresenter=new ProductListPresenterImpl(this,new MockProductListDetailsProvider());
+		productListPresenter=new ProductListPresenterImpl(this,new RetrofitProductProvider());
 		sellBuyPresenter=new SellBuyPresenterImpl(this,new MockSellBuyHelper());
 		LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
 		recyclerView.setLayoutManager(linearLayoutManager);

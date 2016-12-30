@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <android.support.design.widget.CoordinatorLayout
     android:id="@+id/coordinator_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -38,7 +36,10 @@
                 style="@style/Base.ThemeOverlay.AppCompat.Dark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary" />
+                android:background="@color/colorPrimary"
+                app:theme="@style/AppTheme"
+                app:titleTextColor="#FFFFFF"
+               />
         </LinearLayout>
 
     <FrameLayout
@@ -46,6 +47,7 @@
     android:layout_height="wrap_content"
         android:id="@+id/frame_layout_deals">
     </FrameLayout>
+
 
     </LinearLayout>
 
@@ -59,7 +61,8 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer"/>
+        app:menu="@menu/activity_main_drawer"
+        app:theme="@style/Theme.AppCompat.Light"/>
 
 </android.support.v4.widget.DrawerLayout>
 

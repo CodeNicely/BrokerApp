@@ -26,7 +26,7 @@ public class MockCategoryDetailsProvider implements CategoryProvider {
 			categoryDetailsList.add(categoryDetails1);
 		}
 
-		CategoryData categoryData=new CategoryData(true,"Succesful",categoryDetailsList);
+		CategoryData categoryData=new CategoryData("Succesful",true,categoryDetailsList);
 		Log.i("","Response:"+categoryData.getCategoryList().size());
 		categoryCallback.onSuccess(categoryData);
 	}

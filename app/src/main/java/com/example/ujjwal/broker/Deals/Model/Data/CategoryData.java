@@ -9,12 +9,12 @@ public class CategoryData {
 	private String message;
 	private boolean success;
 
-	private List<CategoryDetails> categoryList;
+	private List<CategoryDetails> category_list;
 
-	public CategoryData(boolean success,String message,List<CategoryDetails> categoryList){
-		this.message=message;
-		this.success=success;
-		this.categoryList=categoryList;
+	public CategoryData(String message, boolean success, List<CategoryDetails> category_list) {
+		this.message = message;
+		this.success = success;
+		this.category_list = category_list;
 	}
 
 	public String getMessage(){
@@ -24,6 +24,6 @@ public class CategoryData {
 		return success;
 	}
 	public List<CategoryDetails> getCategoryList(){
-		return categoryList;
+		return category_list;
 	}
 }

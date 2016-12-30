@@ -3,9 +3,7 @@ package com.example.ujjwal.broker.SellBuy.Presenter;
 import com.example.ujjwal.broker.SellBuy.BuySellCallback;
 import com.example.ujjwal.broker.SellBuy.Model.BuySellHelper;
 import com.example.ujjwal.broker.SellBuy.Model.Data.BuySellResponse;
-import com.example.ujjwal.broker.SellBuy.Model.RetrofitBuySellHelper;
 import com.example.ujjwal.broker.SellBuy.View.BuySellView;
-import com.example.ujjwal.broker.SellBuy.View.SellBuyFragment;
 
 /**
  * Created by ujjwal on 29/12/16.
@@ -20,9 +18,9 @@ public class BuySellPresenterImpl implements BuySellPresenter {
 	}
 
 	@Override
-	public void getBuySellData(String accessToken, int product_id, String price) {
+	public void getBuySellData(String accessToken, int id, String product_name, String product_description, String price, String unit) {
 		buySellView.showProgressBar(true);
-		buySellHelper.getBuySellData(accessToken,product_id,price, new BuySellCallback() {
+		buySellHelper.getBuySellData(accessToken,id,product_name,product_description,price,unit, new BuySellCallback() {
 			@Override
 			public void onSuccess(BuySellResponse buySellResponse) {
 				buySellView.showProgressBar(false);
