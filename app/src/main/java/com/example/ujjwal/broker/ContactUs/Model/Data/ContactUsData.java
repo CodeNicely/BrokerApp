@@ -1,5 +1,6 @@
 package com.example.ujjwal.broker.ContactUs.Model.Data;
 
+import android.hardware.camera2.params.StreamConfigurationMap;
 import android.widget.TextView;
 
 /**
@@ -8,11 +9,10 @@ import android.widget.TextView;
 public class ContactUsData {
 	private boolean success;
 	private String message;
-
-	private String name1,name2,name3;
-	private String number1,number2,number3;
+	private String firm_name;
+	private String mobile1,mobile2,mobile3,landline1,landline2;
 	private String address;
-	private String image;
+
 	public boolean isSuccess() {
 		return success;
 	}
@@ -21,48 +21,43 @@ public class ContactUsData {
 		return message;
 	}
 
-	public ContactUsData(boolean success, String message, String name1, String name2, String name3, String number1, String number2, String number3, String address, String image) {
+	public ContactUsData(boolean success, String message, String firm_name, String mobile1, String mobile2, String mobile3, String landline1, String landline2, String address) {
 		this.success = success;
 		this.message = message;
-		this.name1 = name1;
-		this.name2 = name2;
-		this.name3 = name3;
-		this.number1 = number1;
-		this.number2 = number2;
-		this.number3 = number3;
+		this.firm_name = firm_name;
+		this.mobile1 = mobile1;
+		this.mobile2 = mobile2;
+		this.mobile3 = mobile3;
+		this.landline1 = landline1;
+		this.landline2 = landline2;
 		this.address = address;
-		this.image = image;
-	}
-
-	public String getName1() {
-		return name1;
-	}
-
-	public String getName2() {
-		return name2;
-	}
-
-	public String getNumber1() {
-		return number1;
-	}
-
-	public String getNumber2() {
-		return number2;
-	}
-
-	public String getNumber3() {
-		return number3;
-	}
-
-	public String getName3() {
-		return name3;
 	}
 
 	public String getAddress() {
 		return address;
 	}
 
-	public String getImage() {
-		return image;
+	public String getFirm_name() {
+		return firm_name;
+	}
+
+	public String getMobile1() {
+		return mobile1;
+	}
+
+	public String getMobile2() {
+		return mobile2;
+	}
+
+	public String getMobile3() {
+		return mobile3;
+	}
+
+	public String getLandline1() {
+		return landline1;
+	}
+
+	public String getLandline2() {
+		return landline2;
 	}
 }

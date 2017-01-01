@@ -157,7 +157,7 @@
                 android:layout_marginBottom="10dp"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
-                style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                style="@style/Base.Widget.AppCompat.Button.Colored"
                 android:text="Log In"
                 android:textAllCaps="false"
                 android:textSize="18sp"

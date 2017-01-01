@@ -1,6 +1,7 @@
 package com.example.ujjwal.broker.Deals.View;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -29,6 +30,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static android.support.v4.app.ActivityCompat.startActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -175,9 +178,16 @@ public class ProductsFragment extends Fragment implements ProductView {
 	}
 
 
-	public void onSellBuy(String accessToken, int id,boolean i) {
-		sellBuyPresenter.getSellBuyDetails(accessToken, id, i);
-	//  1-sell 0-buy ---->(i)
+	public void onSellBuy(String accessToken, int id) {
+
+		//sellBuyPresenter.getSellBuyDetails(accessToken, id);
+
+		String moblie_no = "9425503905";
+
+		String uri = "tel:" + moblie_no.trim() ;
+		Intent intent = new Intent(Intent.ACTION_DIAL);
+		intent.setData(Uri.parse(uri));
+		startActivity(intent);
 	}
 
 

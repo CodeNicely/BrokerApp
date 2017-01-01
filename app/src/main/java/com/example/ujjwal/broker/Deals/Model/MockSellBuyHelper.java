@@ -12,7 +12,7 @@ public class MockSellBuyHelper implements SellBuyHelper {
 
 
 	@Override
-	public  void getSellBuyDetails(String accessToken, int id, boolean i, SellBuyCallback sellBuyCallback) {
+	public  void getSellBuyDetails(String accessToken, int id, SellBuyCallback sellBuyCallback) {
 		SellBuyResponse sellBuyResponse=new SellBuyResponse(true,"Sell Successful");
 		Log.i("","Response:"+sellBuyResponse.getMessage());
 		sellBuyCallback.onSuccess(sellBuyResponse);

@@ -14,7 +14,7 @@ public class Urls {
 	public static final String SUB_URL_VERIFY = "verify_otp/";
 
 	public static final String SUB_URL_CATEGORY ="get_categories/";
-	public static final String SUB_URL_PRODUCT ="get_products/" ;
+	public static final String SUB_URL_PRODUCT ="get_products/";
 
 	public static final String SUB_URL_BUY_SELL ="add_sell_buy/";
 	public static final String SUB_URL_BUY_SELL_CATEGORY ="get_categories/" ;

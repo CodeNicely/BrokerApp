@@ -25,7 +25,6 @@ public class RetrofitLoginHelper implements LoginBaseClassHelper {
 	private static String TAG ="RetrofitLoginHelper";
 	RequestLogin requestLogin;
 
-
 	@Override
 	public void loginData(String mobile, String firm, String name, String city,
 						  String category, final LoginCallback loginCallback) {
@@ -43,9 +42,7 @@ public class RetrofitLoginHelper implements LoginBaseClassHelper {
 			@Override
 			public void onResponse(Call<LoginDataResponse> call, Response<LoginDataResponse> response) {
 				Log.i(TAG,"Got Response "+response.body().getMessage().toString());
-
 					loginCallback.onLoginSuccess(response.body());
-
 			}
 				@Override
 			public void onFailure(Call<LoginDataResponse> call, Throwable t) {

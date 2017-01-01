@@ -9,5 +9,5 @@ public interface ContactUsView {
 	void showProgressBar(boolean show);
 	void showMessage(String message);
 	void setContactUsData(ContactUsData contactUsData);
-
+	void setMockData();
 }

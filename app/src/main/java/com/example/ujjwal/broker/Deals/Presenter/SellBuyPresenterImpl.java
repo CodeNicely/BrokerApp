@@ -1,7 +1,6 @@
 package com.example.ujjwal.broker.Deals.Presenter;
 
 import com.example.ujjwal.broker.Deals.Model.Data.SellBuyResponse;
-import com.example.ujjwal.broker.Deals.Model.MockSellBuyHelper;
 import com.example.ujjwal.broker.Deals.Model.SellBuyHelper;
 import com.example.ujjwal.broker.Deals.SellBuyCallback;
 import com.example.ujjwal.broker.Deals.View.ProductView;
@@ -19,8 +18,8 @@ public class SellBuyPresenterImpl implements SellBuyPresenter {
 	}
 
 	@Override
-	public void getSellBuyDetails(String accessToken, int id, boolean i) {
-	sellBuyHelper.getSellBuyDetails(accessToken,id,i, new SellBuyCallback() {
+	public void getSellBuyDetails(String accessToken, int id) {
+	sellBuyHelper.getSellBuyDetails(accessToken,id, new SellBuyCallback() {
 		@Override
 		public void onSuccess(SellBuyResponse sellBuyResponse) {
 			if (sellBuyResponse.isSuccess()){

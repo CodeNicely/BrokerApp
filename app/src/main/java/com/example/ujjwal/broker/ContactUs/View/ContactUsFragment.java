@@ -40,12 +40,10 @@ public class ContactUsFragment extends Fragment implements ContactUsView{
 	Toolbar toolbar;
 	@BindView(R.id.progressBar)
 	ProgressBar progressBar;
-	@BindView(R.id.mobile1_name)
-	TextView name1;
-	@BindView(R.id.mobile2_name)
-	TextView name2;
-	@BindView(R.id.mobile3_name)
-	TextView name3;
+	@BindView(R.id.landline1_number)
+	TextView landline1;
+	@BindView(R.id.landline2_number)
+	TextView landline2;
 	@BindView(R.id.mobile1_number)
 	TextView number1;
 	@BindView(R.id.mobile2_number)
@@ -54,11 +52,14 @@ public class ContactUsFragment extends Fragment implements ContactUsView{
 	TextView number3;
 	@BindView(R.id.address)
 	TextView address;
-	@BindView(R.id.imageProgressBar)
+	@BindView(R.id.firm_name)
+	TextView firm_name;
+	/*@BindView(R.id.imageProgressBar)
 	ProgressBar imageProgressBar;
 	@BindView(R.id.imageView)
 	ImageView imageView;
-	@BindView(R.id.contact_us_layout)
+	*/
+	@BindView(R.id.layout_contact_us)
 	LinearLayout contactUsLayout;
 	@BindView(R.id.phoneCard1)
 	CardView phoneCard1;
@@ -86,18 +87,17 @@ public class ContactUsFragment extends Fragment implements ContactUsView{
 
 		ButterKnife.bind(this,view);
 
-		toolbar.setNavigationIcon(R.mipmap.ic_arrow_back_white_24dp);
+		toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
 		toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				getActivity().onBackPressed();
 			}
 		});
-
 		sharedPrefs=new SharedPrefs(getContext());
 
 		contactUsPresenter=new ContactUsPresenterImpl(this,new RetrofitContactUsProvider());
-		contactUsPresenter.requestContactUs();
+		contactUsPresenter.requestContactUs(sharedPrefs.getAccessToken());
 		// Inflate the layout for this fragment
 		return view;
 	}
@@ -146,20 +146,76 @@ public class ContactUsFragment extends Fragment implements ContactUsView{
 	@Override
 	public void setContactUsData(ContactUsData contactUsData) {
 
-		name1.setText(contactUsData.getName1());
-		name2.setText(contactUsData.getName2());
-		name3.setText(contactUsData.getName3());
-		number1.setText(contactUsData.getNumber1());
-		number2.setText(contactUsData.getNumber2());
-		number3.setText(contactUsData.getNumber3());
-		address.setText(contactUsData.getAddress());
+		firm_name.setText(contactUsData.getFirm_name());
+		number1.setText(contactUsData.getMobile1());
+		number2.setText(contactUsData.getMobile2());
+		number3.setText(contactUsData.getMobile3());
+		landline1.setText(contactUsData.getLandline1());
+		landline2.setText(contactUsData.getLandline2());
 
+		address.setText(contactUsData.getAddress());
 
 		phoneCard1.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent callIntent1=new Intent(Intent.ACTION_CALL);
-				callIntent1.setData(Uri.parse("tel:"+sharedPrefs.getHelplineNumber1()));
+				Intent callIntent1=new Intent(Intent.ACTION_DIAL);
+				callIntent1.setData(Uri.parse("tel:" + number1.getText().toString().trim()));
+				startActivity(callIntent1);
+			}
+		});
+
+
+		phoneCard2.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent callIntent2=new Intent(Intent.ACTION_DIAL);
+				callIntent2.setData(Uri.parse("tel:"+number2.getText().toString().trim()));
+				startActivity(callIntent2);
+			}
+		});
+		phoneCard3.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent callIntent3=new Intent(Intent.ACTION_DIAL);
+				callIntent3.setData(Uri.parse("tel:"+number3));
+				startActivity(callIntent3);
+			}
+		});
+		landline1.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent callIntent4=new Intent(Intent.ACTION_DIAL);
+				callIntent4.setData(Uri.parse("tel:"+landline1));
+				startActivity(callIntent4);
+			}
+		});
+
+		landline2.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent callIntent5=new Intent(Intent.ACTION_DIAL);
+				callIntent5.setData(Uri.parse("tel:"+landline2));
+				startActivity(callIntent5);
+			}
+		});
+		//imageLoader.LoadImage(contactUsData.getImage(), imageView, imageProgressBar);
+
+
+	}
+
+	@Override
+	public void setMockData() {
+
+		number1.setText("9425503905");
+		number2.setText("9406202298");
+		number3.setText("9300293177");
+		address.setText("Agrawal Brothers ,Ramayan Complex ,Ramsagarpara, Raipur(C.G.)");
+
+		phoneCard1.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent callIntent1=new Intent(Intent.ACTION_DIAL);
+				callIntent1.setData(Uri.parse("tel:"+number1));
 				startActivity(callIntent1);
 			}
 		});
@@ -181,10 +237,6 @@ public class ContactUsFragment extends Fragment implements ContactUsView{
 				startActivity(callIntent1);
 			}
 		});
-
-		imageLoader.LoadImage(contactUsData.getImage(), imageView, imageProgressBar);
-
-
 
 	}
 

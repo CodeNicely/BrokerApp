@@ -5,6 +5,7 @@ import com.example.ujjwal.broker.helper.Urls;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 /**
  * Created by ujjwal on 29/12/16.
@@ -12,6 +13,6 @@ import retrofit2.http.GET;
 public interface ContactUsApi {
 
 	@GET(Urls.SUB_URL_CONTACT_US)
-	Call<ContactUsData> requestContactUs();
+	Call<ContactUsData> requestContactUs(@Query("access_token")String accessToken);
 
 }

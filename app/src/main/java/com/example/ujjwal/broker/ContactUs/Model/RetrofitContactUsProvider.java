@@ -35,8 +35,8 @@ public class RetrofitContactUsProvider implements ContactUsProvider {
 
 
 	@Override
-	public void requestContactUs(final ContactUsCallback contactUsCallback) {
-			contactUsDataCall=contactUsApi.requestContactUs();
+	public void requestContactUs(String accessToken, final ContactUsCallback contactUsCallback) {
+			contactUsDataCall=contactUsApi.requestContactUs(accessToken);
 			contactUsDataCall.enqueue(new Callback<ContactUsData>() {
 				@Override
 				public void onResponse(Call<ContactUsData> call, Response<ContactUsData> response) {

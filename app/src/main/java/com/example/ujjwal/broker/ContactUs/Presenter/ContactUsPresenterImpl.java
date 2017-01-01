@@ -18,9 +18,10 @@ public class ContactUsPresenterImpl implements ContactUsPresenter {
 	}
 
 	@Override
-	public void requestContactUs() {
+	public void requestContactUs(String accessToken) {
 		contactUsView.showProgressBar(true);
-		contactUsProvider.requestContactUs(new ContactUsCallback() {
+
+		contactUsProvider.requestContactUs(accessToken,new ContactUsCallback() {
 			@Override
 			public void onSuccess(ContactUsData contactUsData) {
 				contactUsView.showProgressBar(false);
@@ -38,6 +39,6 @@ public class ContactUsPresenterImpl implements ContactUsPresenter {
 			}
 		});
 
-
+	/*contactUsView.setMockData();*/
 	}
 }

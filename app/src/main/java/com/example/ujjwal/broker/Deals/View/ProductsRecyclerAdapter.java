@@ -1,6 +1,8 @@
 package com.example.ujjwal.broker.Deals.View;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -24,6 +26,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static android.support.v4.app.ActivityCompat.startActivity;
 
 /**
  * Created by ujjwal on 19/12/16.
@@ -65,23 +69,16 @@ public class ProductsRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
 		productViewHolder.productRate.append(" / ");
 		productViewHolder.productRate.append(productListDetails.getUnit());
 
-		productViewHolder.sellButton.setOnClickListener(new View.OnClickListener() {
+		productViewHolder.contactButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+
 				productsFragment.onSellBuy(sharedPrefs.getAccessToken(),
-						productListDetailsList.get(position).getId(),true);
+						productListDetailsList.get(position).getId());
 				Log.i("ProductsRecyclerAdapter","productIDSELL"+productListDetailsList.get(position).getId());
 			}
 		});
-		productViewHolder.buyButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				productsFragment.onSellBuy(sharedPrefs.getAccessToken(),
-						productListDetailsList.get(position).getId(),false);
-				Log.i("ProductsRecyclerAdapter","productIDBUY"+productListDetailsList.get(position).getId());
 
-			}
-		});
 
 		Log.d("itemPosition",Integer.toString(position)+""+productListDetails.getId());
 
@@ -115,10 +112,8 @@ public class ProductsRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
 		ProgressBar progressBar;
 		@BindView(R.id.product_card)
 		CardView productCard;
-		@BindView(R.id.button_sell)
-		Button sellButton;
-		@BindView(R.id.button_buy)
-		Button buyButton;
+		@BindView(R.id.button_contact)
+		Button contactButton;
 
 		public ProductViewHolder(View view) {
 			super(view);
