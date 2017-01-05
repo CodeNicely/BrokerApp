@@ -35,12 +35,14 @@ public class SplashScreenActivity extends Activity implements SplashScreenView {
 	private Handler handler;
 	private SplashScreenPresenter splashScreenPresenter ;
 	private SharedPrefs sharedPrefs;
+/*
 
 	@BindView(R.id.BrokerApp_Logo)
 	ImageView broker_app_logo;
 
 	@BindView(R.id.CodeNicelyLogo)
 	ImageView codenicely_logo;
+*/
 
 
 
@@ -51,12 +53,12 @@ public class SplashScreenActivity extends Activity implements SplashScreenView {
 		setContentView(R.layout.activity_splash_screen);
 
 		ButterKnife.bind(this);
-		Glide.with(this).load(R.drawable.ic_menu_gallery).into(codenicely_logo);
+		/*Glide.with(this).load(R.drawable.ic_menu_gallery).into(codenicely_logo);
 		Glide.with(this).load(R.drawable.ic_menu_gallery).into(broker_app_logo);
-
+*/
 		splashScreenPresenter =new SplashScreenPresenterImpl(this,new ReterofitSplashScreenProvider());
 		splashScreenPresenter.sendFcm(MyApplication.getFcm_token());
-		Log.i("sajnsa,","FCM TOken"+MyApplication.getFcm_token());
+		Log.i("SplashScreen","FCM Token"+MyApplication.getFcm_token());
 
 		sharedPrefs = new SharedPrefs(this);
 

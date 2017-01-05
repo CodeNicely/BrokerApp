@@ -62,7 +62,7 @@ public class DealsActivity extends AppCompatActivity implements
 		navigationView.setNavigationItemSelectedListener(this);
 
 
-		setFragment(new CategoryFragment(), "Home");
+		setFragment(new CategoryFragment(), "Agrawal Brothers");
 	}
 
 	private void initialise() {
@@ -93,8 +93,8 @@ public class DealsActivity extends AppCompatActivity implements
 		//	getFragmentManager().popBackStack();
 				getSupportActionBar().show();
 				super.onBackPressed();
-			Toast.makeText(this, "Go back", Toast.LENGTH_SHORT).show();
-		}else if (getSupportFragmentManager().getBackStackEntryCount()>1){
+		/*	Toast.makeText(this, "Go back", Toast.LENGTH_SHORT).show();
+		*/}else if (getSupportFragmentManager().getBackStackEntryCount()>1){
 			super.onBackPressed();
 			Toast.makeText(this, "Go back", Toast.LENGTH_SHORT).show();
 

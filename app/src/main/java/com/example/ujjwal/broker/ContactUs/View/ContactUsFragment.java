@@ -53,12 +53,11 @@ public class ContactUsFragment extends Fragment implements ContactUsView{
 	@BindView(R.id.address)
 	TextView address;
 	@BindView(R.id.firm_name)
-	TextView firm_name;
-	/*@BindView(R.id.imageProgressBar)
+	TextView firm_name;/*
+	@BindView(R.id.imageProgressBar)
 	ProgressBar imageProgressBar;
 	@BindView(R.id.imageView)
-	ImageView imageView;
-	*/
+	ImageView imageView;*/
 	@BindView(R.id.layout_contact_us)
 	LinearLayout contactUsLayout;
 	@BindView(R.id.phoneCard1)
@@ -177,7 +176,7 @@ public class ContactUsFragment extends Fragment implements ContactUsView{
 			@Override
 			public void onClick(View v) {
 				Intent callIntent3=new Intent(Intent.ACTION_DIAL);
-				callIntent3.setData(Uri.parse("tel:"+number3));
+				callIntent3.setData(Uri.parse("tel:"+number3.getText().toString().trim()));
 				startActivity(callIntent3);
 			}
 		});
@@ -185,7 +184,7 @@ public class ContactUsFragment extends Fragment implements ContactUsView{
 			@Override
 			public void onClick(View v) {
 				Intent callIntent4=new Intent(Intent.ACTION_DIAL);
-				callIntent4.setData(Uri.parse("tel:"+landline1));
+				callIntent4.setData(Uri.parse("tel:"+landline1.getText().toString().trim()));
 				startActivity(callIntent4);
 			}
 		});
@@ -194,7 +193,7 @@ public class ContactUsFragment extends Fragment implements ContactUsView{
 			@Override
 			public void onClick(View v) {
 				Intent callIntent5=new Intent(Intent.ACTION_DIAL);
-				callIntent5.setData(Uri.parse("tel:"+landline2));
+				callIntent5.setData(Uri.parse("tel:"+landline2.getText().toString().trim()));
 				startActivity(callIntent5);
 			}
 		});
@@ -224,7 +223,7 @@ public class ContactUsFragment extends Fragment implements ContactUsView{
 		phoneCard2.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent callIntent1=new Intent(Intent.ACTION_CALL);
+				Intent callIntent1=new Intent(Intent.ACTION_DIAL);
 				callIntent1.setData(Uri.parse("tel:"+sharedPrefs.getHelplineNumber2()));
 				startActivity(callIntent1);
 			}
@@ -232,7 +231,7 @@ public class ContactUsFragment extends Fragment implements ContactUsView{
 		phoneCard3.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent callIntent1=new Intent(Intent.ACTION_CALL);
+				Intent callIntent1=new Intent(Intent.ACTION_DIAL);
 				callIntent1.setData(Uri.parse("tel:"+sharedPrefs.getHelplineNumber3()));
 				startActivity(callIntent1);
 			}
