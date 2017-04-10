@@ -53,11 +53,7 @@ public class ContactUsFragment extends Fragment implements ContactUsView{
 	@BindView(R.id.address)
 	TextView address;
 	@BindView(R.id.firm_name)
-	TextView firm_name;/*
-	@BindView(R.id.imageProgressBar)
-	ProgressBar imageProgressBar;
-	@BindView(R.id.imageView)
-	ImageView imageView;*/
+	TextView firm_name;
 	@BindView(R.id.layout_contact_us)
 	LinearLayout contactUsLayout;
 	@BindView(R.id.phoneCard1)
@@ -85,6 +81,7 @@ public class ContactUsFragment extends Fragment implements ContactUsView{
 		View view=inflater.inflate(R.layout.fragment_contact_us,container,false);
 
 		ButterKnife.bind(this,view);
+		toolbar.setTitle("Contact Us");
 
 		toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
 		toolbar.setNavigationOnClickListener(new View.OnClickListener() {

@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 
 import com.example.ujjwal.broker.ContactUs.View.ContactUsFragment;
+import com.example.ujjwal.broker.Developer.View.DeveloperFragment;
 import com.example.ujjwal.broker.R;
 import com.example.ujjwal.broker.SellBuy.View.SellBuyFragment;
 
@@ -93,11 +94,8 @@ public class DealsActivity extends AppCompatActivity implements
 		//	getFragmentManager().popBackStack();
 				getSupportActionBar().show();
 				super.onBackPressed();
-		/*	Toast.makeText(this, "Go back", Toast.LENGTH_SHORT).show();
-		*/}else if (getSupportFragmentManager().getBackStackEntryCount()>1){
+		}else if (getSupportFragmentManager().getBackStackEntryCount()>1){
 			super.onBackPressed();
-			Toast.makeText(this, "Go back", Toast.LENGTH_SHORT).show();
-
 		}
 	}
 
@@ -121,9 +119,12 @@ public class DealsActivity extends AppCompatActivity implements
 			getSupportActionBar().hide();
 			addFragment(new SellBuyFragment());
 
-		}else {
+		}else if (id==R.id.contact_us){
 				getSupportActionBar().hide();
 					addFragment(new ContactUsFragment());
+		}else{
+			getSupportActionBar().hide();
+			addFragment(new DeveloperFragment());
 		}
 
 		DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -139,7 +140,6 @@ public class DealsActivity extends AppCompatActivity implements
 		fragmentTransaction.replace(R.id.frame_layout_deals, fragment);
 		fragmentTransaction.addToBackStack(null);
 		fragmentTransaction.commit();
-
 	}
 
 

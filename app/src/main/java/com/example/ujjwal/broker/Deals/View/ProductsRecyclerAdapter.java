@@ -118,6 +118,7 @@ public class ProductsRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
 		public ProductViewHolder(View view) {
 			super(view);
 			ButterKnife.bind(this,view);
+
 		}
 	}
 }

@@ -51,9 +51,7 @@ public class LoginMainImp extends AppCompatActivity implements LoginMain{
 		editTextMobile= (EditText) findViewById(R.id.input_mobile);
 		editTextCity= (EditText) findViewById(R.id.input_city);
 		editTextCategory=(EditText)findViewById(R.id.input_category);
-
 		progressBar= (ProgressBar) findViewById(R.id.progressBar);
-
 		editTextMobile.addTextChangedListener(new TextWatcher() {
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -95,15 +93,11 @@ public class LoginMainImp extends AppCompatActivity implements LoginMain{
 		if(name.isEmpty()|| mobile.isEmpty()|| firm.isEmpty() || city.isEmpty()|| category.isEmpty()){
 			showProgressBar(false);
 			showError("Fields Cannot be empty");
-
 		}
 		else{
-
 			loginData = new LoginDataImp(this, new RetrofitLoginHelper());
 			loginData.getLoginData(mobile, firm, name,city,category);
-
 				hideKeyboard();
-
 		}
 	}
 
@@ -128,6 +122,7 @@ public class LoginMainImp extends AppCompatActivity implements LoginMain{
 			i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(i);
 			finish();
+
 		}
 	}
 

@@ -12,6 +12,8 @@ import java.util.List;
 public interface ProductView {
 	void showProgressBar(boolean show);
 	void showMessage(String message);
+
+
 	void setProductData(List<ProductListDetails> productListDetails);
-	void updateAdapter();
+
 }

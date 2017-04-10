@@ -90,7 +90,7 @@ public class ProductsFragment extends Fragment implements ProductView {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-							 Bundle savedInstanceState) {
+							 Bundle savedInstanceState){
 		View v=inflater.inflate(R.layout.fragment_products,container,false);
 		// Inflate the layout for this fragment
 		ButterKnife.bind(this,v);
@@ -158,12 +158,6 @@ public class ProductsFragment extends Fragment implements ProductView {
 	public void showMessage(String message) {
 		Toast.makeText(getContext(),message,Toast.LENGTH_SHORT).show();
 	}
-
-	@Override
-	public void updateAdapter() {
-		productsRecyclerAdapter.notifyDataSetChanged();
-	}
-
 	@Override
 	public void setProductData(List<ProductListDetails> productListDetails) {
 		if (productListDetails.size()==0){

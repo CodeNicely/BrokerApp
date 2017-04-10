@@ -56,7 +56,6 @@ public class CategoryFragment extends Fragment implements CategoryView {
 		ButterKnife.bind(this,view);
 		sharedPrefs=new SharedPrefs(getContext());
 
-
 		categoryPresenter=new CategoryPresenterImpl(this,new RetrofitCategoryProvider());
 
 		viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
